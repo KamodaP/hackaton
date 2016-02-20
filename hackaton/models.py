@@ -3,6 +3,7 @@
     Index,
     Integer,
     Text,
+    ForeignKey
     )
 
 from sqlalchemy.ext.declarative import declarative_base
