@@ -41,11 +41,10 @@
   <ItemGroup>
     <Compile Include="hackaton\login_module\security.py" />
     <Compile Include="hackaton\login_module\__init__.py" />
-    <Compile Include="hackaton\models.py" />
+    <Compile Include="hackaton\scripts\models.py" />
     <Compile Include="hackaton\scripts\initializedb.py" />
     <Compile Include="hackaton\scripts\__init__.py" />
-    <Compile Include="hackaton\tests.py" />
-    <Compile Include="hackaton\views.py" />
+    <Compile Include="hackaton\scripts\tests.py" />
     <Compile Include="hackaton\views\views.py" />
     <Compile Include="hackaton\views\__init__.py" />
     <Compile Include="hackaton\__init__.py" />
