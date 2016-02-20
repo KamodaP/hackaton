@@ -12,10 +12,10 @@
 		value = "${came_from}"/>
 	<label for = "login">E-Mail</label>
 	<input type = "text" id = "login" name = "login" 
-		value = "${login}"/></br>
+		value = "${login}"/><br/>
 	<label for = "password">Password</label>
 	<input type = "password" id = "password"
-		name = "password" value = "${password}"></br>
+		name = "password" value = "${password}"><br/>
 	<input type = "submit" name = "form.submitted"
 		value = "Log In"/>
 </form>
