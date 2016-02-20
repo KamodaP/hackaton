@@ -21,8 +21,7 @@ def main(global_config, **settings):
     config.include('pyramid_chameleon')
 	
 	#Policies
-	authn_policy = AuthTktAuthenticationPolicy(settings['hackaton.secret'], 
-		callback = groupfinder, hashalg='sha512')
+	authn_policy = AuthTktAuthenticationPolicy(settings['hackaton.secret'], callback = groupfinder, hashalg='sha512')
 	authz_policy = ACLAuthorizationPolicy()
 	config.set_authentication_policy(authn_policy)
 	config.set_authorization_policy(authz_policy)
