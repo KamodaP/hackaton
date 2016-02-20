@@ -25,7 +25,7 @@ class users(Base):
     email_addr = Column(Text, unique=True)
     pswd_hash = Column(Text)
     respect = Column(Integer)
-    __table_args__ = ((UniqieContraint(email_addr), ), {})
+    __table_args__ = ((UniqieConstraint(email_addr), ), {})
 
 class games(Base):
     __tablename__ = 'games'
