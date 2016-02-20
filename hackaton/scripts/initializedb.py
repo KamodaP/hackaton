@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import transaction
 
@@ -13,8 +13,13 @@ from pyramid.scripts.common import parse_vars
 
 from ..models import (
     DBSession,
-    MyModel,
     Base,
+    users,
+    games,
+    tags,
+    game_tag_rel,
+    game_user_rel,
+    data
     )
 
 
