@@ -3,7 +3,8 @@
     Index,
     Integer,
     Text,
-    ForeignKey
+    ForeignKey,
+    UniqueConstraint
     )
 
 from sqlalchemy.ext.declarative import declarative_base
