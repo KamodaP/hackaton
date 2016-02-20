@@ -30,7 +30,7 @@ class CommonViews:
 	def login(self):
 		request = self.request
 		login_url = request.route_url('login')
-		referrer = request_url
+		referrer = request.url
 		if referrer == login_url:
 			referrer = '/'
 		came_from = request.params.get('came_from', referrer)
