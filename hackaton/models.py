@@ -39,7 +39,9 @@ class game_tag_rel(Base):
     tag_id = Column(Integer, ForeignKey('tags.id'), primary_key = True)
 
 class game_user_rel(Base):
-    __tablename
+    __tablename__ = "game_user_rel"
+    game_id = Column(Integer, ForeignKey('games.id'), primary_key = True)
+    user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
 
 class tags(Base):
     __tablename__ = 'tags'
