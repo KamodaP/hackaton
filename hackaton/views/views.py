@@ -44,10 +44,10 @@ class CommonViews:
 				headers = remember(request, login)
 				return HTTPFound(location = came_from,
 					headers=headers)
-			messege = 'Failed login'
+			message = 'Failed login'
 		return dict(
 			name = 'Login',
-			massege = message,
+			massage = message,
 			url = requuest.application_url + '/login',
 			came_from = came_from,
 			login = login,
