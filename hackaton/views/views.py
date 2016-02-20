@@ -9,7 +9,7 @@ from pyramid.view import (
 	view_defaults
 	)
 	
-from .security import USERS
+from ..login_module.security import USERS
 
 
 @view_defaults(renderer = 'home.pt')
