@@ -14,7 +14,7 @@ def set_data(gameid, val1, val2):
 #games connections
 
 def get_games_of_owner(ownerid):
-    games_of_owner = DBSession.query(games).filter_by(owner_id == ownerid).all()
+    games_of_owner = DBSession.query(games).filter_by(games.owner_id == ownerid).all()
     return games_of_owner
 
 def get_games_of_user(userid):
@@ -23,7 +23,7 @@ def get_games_of_user(userid):
 
 
 def get_newes_public_games():
-    newest_games = DBSession.query(games).filter_by(status==0).order_by(desc(games.id)).limit(50)
+    newest_games = DBSession.query(games).filter_by(games.status==0).order_by(desc(games.id)).limit(50)
     return newest_games
 
 
