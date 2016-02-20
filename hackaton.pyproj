@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="hackaton\login_module\security.py" />
     <Compile Include="hackaton\login_module\__init__.py" />
-    <Compile Include="hackaton\scripts\models.py" />
+    <Compile Include="hackaton\database\models.py" />
     <Compile Include="hackaton\scripts\initializedb.py" />
     <Compile Include="hackaton\scripts\__init__.py" />
     <Compile Include="hackaton\scripts\tests.py" />
@@ -54,6 +54,7 @@
     <Folder Include="hackaton" />
     <Folder Include="hackaton.egg-info" />
     <Folder Include="hackaton\login_module\" />
+    <Folder Include="hackaton\database\" />
     <Folder Include="hackaton\scripts" />
     <Folder Include="hackaton\static" />
     <Folder Include="hackaton\templates\" />
