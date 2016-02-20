@@ -2,7 +2,7 @@
 	'viewer': 'viewer'}
 GROUPS = {'editor': ['group:editors']}
 
-from ..database.model import DBSession, users
+from ..database.models import DBSession, users
 
 def groupfinder(userid, request):
 	if userid in USERS:
