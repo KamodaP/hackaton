@@ -3,7 +3,7 @@ from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.config import Configurator
 from sqlalchemy import engine_from_config
 
-from .security import groupfinder
+from login_module.security import groupfinder
 
 from scripts.models import (
     DBSession,
