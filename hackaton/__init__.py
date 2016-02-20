@@ -5,9 +5,9 @@ from sqlalchemy import engine_from_config
 
 from login_module.security import groupfinder
 
-from scripts.models import (
+from database.models import (
     DBSession,
-    Base,
+    Base
     )
 
 
