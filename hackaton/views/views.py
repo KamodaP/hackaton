@@ -9,7 +9,7 @@ from pyramid.view import (
 	view_defaults
 	)
 	
-from ..login_module.security import USERS
+from ..login_module.security import check_login
 
 
 @view_defaults(renderer = 'home.pt')
@@ -40,7 +40,7 @@ class CommonViews:
 		if 'form.submitted' in request.params:
 			login = request.params['login']
 			password = request.params['password']
-			if USER.get(login) == password:
+			if check_login(login, password) == True:
 				headers = remember(request, login)
 				return HTTPFound(location = came_from,
 					headers=headers)
