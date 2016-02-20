@@ -22,9 +22,10 @@ class users(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     user_name = Column(Text)
-    email_addr = Column(Text)
+    email_addr = Column(Text, unique=True)
     pswd_hash = Column(Text)
     respect = Column(Integer)
+    __table_args__ = ((UniqieContraint(email_addr), ), {})
 
 class games(Base):
     __tablename__ = 'games'

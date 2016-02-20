@@ -39,6 +39,7 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="hackaton\database\data_source.py" />
     <Compile Include="hackaton\database\__init__.py">
       <SubType>Code</SubType>
     </Compile>

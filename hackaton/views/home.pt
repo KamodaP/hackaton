@@ -11,6 +11,14 @@
 		href = "${request.route_url('logout')}">Logout</a>
 </div>
 
+<table>
+<tr tal:repeat="item game_records">
+	<td>${item.name}</td>
+	<td>${item.owner}</td>
+	<td>${item.tags}</td>
+</tr>
+</table>
+
 <h1>Hi ${name}</h1>
 <p>About <a href = "${request.route_url('about')}">us</a></p>
 </body>
