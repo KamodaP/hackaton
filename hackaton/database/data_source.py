@@ -1,9 +1,9 @@
-from .models import DBSession, data, games, users, tags, game_tag_rel, game_user_rel
+﻿from .models import DBSession, data, games, users, tags, game_tag_rel, game_user_rel
 
 #data connectios
 
 def get_game_data(gameid):
-    game_data = DBSession.query(data).filter_by(game_id == gameid).order_by(data.id).all()
+    game_data = DBSession.query(data).filter_by(data.game_id == gameid).order_by(data.id).all()
     return game_data
 
 def set_data(gameid, val1, val2):
