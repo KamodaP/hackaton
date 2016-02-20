@@ -27,11 +27,10 @@ class users(Base):
 
 class games(Base):
     __tablename__ = 'games'
-    __table_args__ = ( CheckConstraint("status in ('private', 'public')", name='status_cnstr'))
     id = Column(Integer, primary_key=True)
     game_name = Column(Text)
     owner_id = Column(Integer, ForeignKey('users.id'))
-    status = Column(Text)
+    status = Column(Integer)
 
 class game_tag_rel(Base):
     __tablename__ = 'game_tag_rel'
