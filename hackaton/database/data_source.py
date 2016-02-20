@@ -23,7 +23,7 @@ def get_games_of_user(userid):
 
 
 def get_newes_public_games():
-    newest_games = DBSession.query(games).filter_by(status=0).order_by(desc(games.id)).limit(50)
+    newest_games = DBSession.query(games).filter_by(status=0).order_by(games.id.desc()).limit(50)
     return newest_games
 
 
