@@ -1,4 +1,4 @@
-from pyramid.authentication import AuthTktAuthenyicationPolicy
+﻿from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.config import Configurator
 
@@ -9,7 +9,7 @@ def main(global_config, **settings):
 	config.include('pyramid_chameleon')
 	
 	#Policies
-	authn_policy = AuthTktAuthenyicationPolicy(settings['hackaton.secret'], 
+	authn_policy = AuthTktAuthenticationPolicy(settings['hackaton.secret'], 
 		callback = groupfinder, hashalg='sha512')
 	authz_policy = ACLAuthorizationPolicy()
 	config.set_authentication_policy(authn_policy)
