@@ -8,6 +8,10 @@ from pyramid.view import (
     view_config,
     view_defaults
     )
+
+from data_source import (
+    get_newes_public_games
+)
     
 from ..login_module.security import check_login
 
@@ -20,7 +24,7 @@ class CommonViews:
         
     @view_config(route_name='home')
     def home(self):
-        games = [{'game_name' : 'game1'}, {'game_name' : 'game2'}, {'game_name' : 'game3'}]#None #get from DB
+        games = get_newes_public_games()
         game_records = []
 
         for game in games:
@@ -28,7 +32,7 @@ class CommonViews:
             user = {'user_name' : 'Marek Marecki'}#None #get from DB for game
             super_tag = ""
             for tag in tags:
-                super_tag = super_tag.join(';').join(tag['tag'])
+                super_tag = super_tag + ';' + tag['tag']
             game_records.append({'name' : game['game_name'], 'owner' : user['user_name'], 'tags' : super_tag})
 
         return {'game_records' : game_records, 'name': 'Home View'}
