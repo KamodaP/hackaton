@@ -20,10 +20,6 @@ class CommonViews:
         
     @view_config(route_name='home')
     def home(self):
-        return {'name': 'Home View'}
-        
-    @view_config(route_name='about')
-    def about(self):
         games = [{'game_name' : 'game1'}, {'game_name' : 'game2'}, {'game_name' : 'game3'}]#None #get from DB
         game_records = []
 
@@ -35,7 +31,11 @@ class CommonViews:
                 super_tag = super_tag.join(';').join(tag.tag)
             game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag})
 
-        return {'game_records' : game_records, 'name': 'About View'}
+        return {'game_records' : game_records, 'name': 'Home View'}
+        
+    @view_config(route_name='about')
+    def about(self):
+        return {'name': 'About View'}
         
     @view_config(route_name = 'login', renderer = 'login.pt')
     def login(self):
