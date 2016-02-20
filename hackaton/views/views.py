@@ -33,7 +33,7 @@ class CommonViews:
             super_tag = ""
             for tag in tags:
                 super_tag = super_tag + ';' + tag['tag']
-            game_records.append({'name' : game['game_name'], 'owner' : user['user_name'], 'tags' : super_tag})
+            game_records.append({'name' : game.game_name, 'owner' : user['user_name'], 'tags' : super_tag})
 
         return {'game_records' : game_records, 'name': 'Home View'}
         
