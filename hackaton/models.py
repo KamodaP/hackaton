@@ -51,6 +51,7 @@ class tags(Base):
 
 class data(Base):
     __tablename__ = 'data'
+    id = Column(Integer, primary_key=True)
     game_id = Column(Integer, ForeignKey('games.id'))
     value_1 = Column(Text)
     value_2 = Column(Text)
