@@ -47,7 +47,7 @@ class CommonViews:
 		message = 'Failed login'
 		return dict(
 			name = 'Login',
-			massage = message,
+			message = message,
 			url = request.application_url + '/login',
 			came_from = came_from,
 			login = login,
