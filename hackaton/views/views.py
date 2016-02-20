@@ -48,7 +48,7 @@ class CommonViews:
 		return dict(
 			name = 'Login',
 			massage = message,
-			url = requuest.application_url + '/login',
+			url = request.application_url + '/login',
 			came_from = came_from,
 			login = login,
 			password = password,
