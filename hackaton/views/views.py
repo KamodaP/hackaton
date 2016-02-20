@@ -9,7 +9,7 @@ from pyramid.view import (
     view_defaults
     )
 
-from data_source import (
+from ..database.data_source import (
     get_newes_public_games
 )
     
