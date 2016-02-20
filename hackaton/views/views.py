@@ -1,4 +1,4 @@
-from pyramid.httpexeptions import HTTPFound
+﻿from pyramid.httpexceptions import HTTPFound
 from pyramid.security import (
 	remember,
 	forget,
