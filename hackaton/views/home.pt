@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<title>Halcyon</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="${request.static_url('hackaton:static/materialize.min.css')}" type="text/css" media="screen,projection"/>
+	<link rel="stylesheet" href="${request.static_url('hackaton:views/static/materialize.min.css')}" type="text/css" media="screen,projection"/>
 
 </head>
 <body>
