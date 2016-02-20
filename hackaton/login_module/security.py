@@ -9,7 +9,7 @@ def groupfinder(userid, request):
 		return GROUPS.get(userid, [])
 
 def check_login(userid, passwd):
-    user = BDSession.query(users).filter_by(email_addr = userid, pswd_hash = passwd).first()
+    user = DBSession.query(users).filter_by(email_addr = userid, pswd_hash = passwd).first()
     if user != None:
         return True
     else:
