@@ -1,4 +1,4 @@
-from sqlalchemy import (
+﻿from sqlalchemy import (
     Column,
     Index,
     Integer,
@@ -17,11 +17,40 @@ from zope.sqlalchemy import ZopeTransactionExtension
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
-
-class MyModel(Base):
-    __tablename__ = 'models'
+class users(Base):
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
-    name = Column(Text)
-    value = Column(Integer)
+    user_name = Column(Text)
+    email_addr = Column(Text)
+    pswd_hash = Column(Text)
+    respect = Column(Integer)
 
-Index('my_index', MyModel.name, unique=True, mysql_length=255)
+class games(Base):
+    __tablename__ = 'games'
+    __table_args__ = ( CheckConstraint("status in ('private', 'public')", name='status_cnstr'))
+    id = Column(Integer, primary_key=True)
+    game_name = Column(Text)
+    owner_id = Column(Integer, ForeignKey('users.id'))
+    status = Column(Text)
+
+class game_tag_rel(Base):
+    __tablename__ = 'game_tag_rel'
+    game_id = Column(Integer, ForeignKey('games.id'), primary_key = True)
+    tag_id = Column(Integer, ForeignKey('tags.id'), primary_key = True)
+
+class game_user_rel(Base):
+    __tablename
+
+class tags(Base):
+    __tablename__ = 'tags'
+    id = Column(Integer, primary_key = True)
+    tag = Column(Text)
+    counter = Column(Integer)
+
+class data(Base):
+    __tablename__ = 'data'
+    game_id = Column(Integer, ForeignKey('games.id'))
+    value_1 = Column(Text)
+    value_2 = Column(Text)
+
+Index('tag_uniq', tags.tag, unique=True, mysql_length=25)

@@ -5,8 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3e4e2511-a4c3-4340-9117-a106606c9248}</ProjectGuid>
     <ProjectHome />
-    <StartupFile />
-    <SearchPath>login_module\</SearchPath>
+    <StartupFile>setup.py</StartupFile>
+    <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
@@ -21,16 +21,44 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="login_module\security.py" />
-    <Compile Include="views\views.py" />
-    <Compile Include="login_module\__init__.py" />
-    <Compile Include="views\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Content Include="CHANGES.txt" />
+    <Content Include="development.ini" />
+    <Content Include="hackaton.egg-info\dependency_links.txt" />
+    <Content Include="hackaton.egg-info\entry_points.txt" />
+    <Content Include="hackaton.egg-info\requires.txt" />
+    <Content Include="hackaton.egg-info\SOURCES.txt" />
+    <Content Include="hackaton.egg-info\top_level.txt" />
+    <Content Include="hackaton\static\pyramid-16x16.png" />
+    <Content Include="hackaton\static\pyramid.png" />
+    <Content Include="hackaton\static\theme.css" />
+    <Content Include="hackaton\static\theme.min.css" />
+    <Content Include="hackaton\templates\mytemplate.pt" />
+    <Content Include="hackaton\views\home.pt" />
+    <Content Include="hackaton\views\login.pt" />
+    <Content Include="production.ini" />
+    <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="login_module" />
-    <Folder Include="views\" />
+    <Compile Include="hackaton\login_module\security.py" />
+    <Compile Include="hackaton\login_module\__init__.py" />
+    <Compile Include="hackaton\models.py" />
+    <Compile Include="hackaton\scripts\initializedb.py" />
+    <Compile Include="hackaton\scripts\__init__.py" />
+    <Compile Include="hackaton\tests.py" />
+    <Compile Include="hackaton\views.py" />
+    <Compile Include="hackaton\views\views.py" />
+    <Compile Include="hackaton\views\__init__.py" />
+    <Compile Include="hackaton\__init__.py" />
+    <Compile Include="setup.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="hackaton" />
+    <Folder Include="hackaton.egg-info" />
+    <Folder Include="hackaton\login_module\" />
+    <Folder Include="hackaton\scripts" />
+    <Folder Include="hackaton\static" />
+    <Folder Include="hackaton\templates\" />
+    <Folder Include="hackaton\views\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\2.7" />
