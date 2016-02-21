@@ -194,6 +194,8 @@ class CommonViews:
                 log.debug('data found')
                 game_name = request.params.get('game_name', '')
                 set_game_with_data(game_name, 0, 0, data)
+                url = request.route_url('home')
+                return HTTPFound(location=url, headers=headers)
         return {'request' : request, 'came_from' : came_from}
         
     @view_config(route_name='logout')
