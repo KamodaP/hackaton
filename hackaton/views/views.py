@@ -44,6 +44,9 @@ class CommonViews:
     def __init__(self, request):
         self.request = request
         self.logged_in = request.authenticated_userid
+        import logging
+        log = logging.getLogger(__name__)
+        log.debug('authentication: %s', self.logged_in)
         
     @view_config(route_name='home')
     def home(self):
