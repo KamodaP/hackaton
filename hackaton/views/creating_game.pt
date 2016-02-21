@@ -41,7 +41,7 @@
 var count = 1;
 		
 $('.data_appender').click(function() {
-	$('#data_container').append('<tr><td><input name="in_val_1_' + count + '" type="text" class="validate"></td><td><input name="in_val_2" type="text" class="validate"></td></tr>');
+	$('#data_container').append('<tr><td><input name="in_val_1_' + count + '" type="text" class="validate"></td><td><input name="in_val_2_' + count + '" type="text" class="validate"></td></tr>');
 	count += 1;
 });
 </script>
