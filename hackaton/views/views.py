@@ -186,6 +186,7 @@ class CommonViews:
             while (body1 + str(iter)) in request.params:
                 val1 = request.params.get(body1 + str(iter), None)
                 val2 = request.params.get(body2 + str(iter), None)
+                iter += 1
                 if val1 is None or val2 is None:
                     message = 'All fields must be filled'
                     return {'messgae' : message}
