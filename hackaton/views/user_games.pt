@@ -1,0 +1,75 @@
+<html metal:use-macro="load: main.pt">
+
+<div metal:fill-slot="content">
+
+<div>
+  <input type="radio" name="game_list_type" data-id="all" checked="checked"> All your games<br>
+  <input type="radio" name="game_list_type" data-id="public"> Your public games<br>
+  <input type="radio" name="game_list_type" data-id="private"> Your private games
+</div>
+
+
+<div class = "container" id="all">
+<table>
+	<thead>
+		<tr>
+			<th data-field="name">Name</th>
+			<th data-field="owner_id">Owner</th>
+			<th data-field="tags">Tags</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr tal:repeat="item all_game_records">
+			<td>${item.name}</td>
+			<td>${item.owner}</td>
+			<td>${item.tags}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div class = "none" id="public">
+<table>
+	<thead>
+		<tr>
+			<th data-field="name">Name</th>
+			<th data-field="owner_id">Owner</th>
+			<th data-field="tags">Tags</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr tal:repeat="item public_game_records">
+			<td>${item.name}</td>
+			<td>${item.owner}</td>
+			<td>${item.tags}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div class = "none" id="private">
+<table>
+	<thead>
+		<tr>
+			<th data-field="name">Name</th>
+			<th data-field="owner_id">Owner</th>
+			<th data-field="tags">Tags</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr tal:repeat="item private_game_records">
+			<td>${item.name}</td>
+			<td>${item.owner}</td>
+			<td>${item.tags}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+$(':radio').change(function (event) {
+    var id = $(this).data('id');
+    $('#' + id).addClass('container').siblings().removeClass('none');
+});
+
+</div>
+</html>
