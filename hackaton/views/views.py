@@ -118,7 +118,7 @@ class CommonViews:
         login = ''
         user_name = ''
         password = ''
-        if 'form.submited' in request.params:
+        if 'user_submit' in request.params:
             login = request.params['login']
             user_name = request.params['user_name']
             password = request.params['password']

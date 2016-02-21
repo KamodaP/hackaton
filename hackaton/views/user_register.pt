@@ -40,7 +40,7 @@
           <label for="password">Password</label>
         </div>
       </div>
-	  <input type="submit">	  
+	  <input name="user_submit" type="submit">	  
     </form>
 	<div class="container">
 		<div class="row right white">
