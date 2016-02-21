@@ -17,7 +17,6 @@ from ..database.data_source import (
     
 from ..login_module.security import check_login
 
-
 @view_defaults(renderer = 'home.pt')
 class CommonViews:
     def __init__(self, request):
@@ -42,6 +41,34 @@ class CommonViews:
     @view_config(route_name='about')
     def about(self):
         return {'name': 'About View'}
+
+    @view_config(route_name = 'register', renderer = 'register.pt')
+    def register(self):
+        request = self.request
+        register_url = request.route_url('register')
+        referrer = request.url
+        if referrer == login_url:
+            referrer = '/'
+        came_from = request.params.get('came_from', referrer)
+        message = ''
+        login = ''
+        user_name = ''
+        password = ''
+        if 'form.submited' in request.params:
+            login = request.params['login']
+            user_name = request.params['user_name']
+            password = request.params['password']
+            #add user
+            headers = remember(request, login)
+            return HTTPFound(location = came_from, headers = headers)
+        return dict(
+            name = 'Login',
+            message = message,
+            url = request.application_url + '/register',
+            came_from = came_from,
+            login = login,
+            password = password,
+        )
         
     @view_config(route_name = 'login', renderer = 'login.pt')
     def login(self):
@@ -51,7 +78,7 @@ class CommonViews:
         if referrer == login_url:
             referrer = '/'
         came_from = request.params.get('came_from', referrer)
-        massege = ''
+        message = ''
         login = ''
         password = ''
         if 'form.submitted' in request.params:

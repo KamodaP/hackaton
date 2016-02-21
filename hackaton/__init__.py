@@ -29,6 +29,7 @@ def main(global_config, **settings):
     config.add_route('about', '/about')
     config.add_route('login', '/login')
     config.add_route('logout', '/logout')
+    config.add_route('register', '/register')
     config.add_static_view(name='static', path='hackaton:materialize', cache_max_age=3600)
     config.scan()
     return config.make_wsgi_app()
