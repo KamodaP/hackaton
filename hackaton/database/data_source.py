@@ -9,7 +9,7 @@ def get_user(userid):
 #data connectios
 
 def get_game_data(gameid):
-    game_data = DBSession.query(data).filter_by(data.game_id == gameid).order_by(data.id).all()
+    game_data = DBSession.query(data).filter_by(game_id=gameid).order_by(data.id).all()
     return game_data
 
 def set_data(gameid, val1, val2):
@@ -20,11 +20,11 @@ def set_data(gameid, val1, val2):
 #games connections
 
 def get_games_of_owner(ownerid):
-    games_of_owner = DBSession.query(games).filter_by(games.owner_id == ownerid).all()
+    games_of_owner = DBSession.query(games).filter_by(owner_id=ownerid).all()
     return games_of_owner
 
 def get_games_of_user(userid):
-    games_of_user = DBSession.query(games).join(game_user_rel).filter_by(game_user_rel.user_id==userid).all()
+    games_of_user = DBSession.query(games).join(game_user_rel).filter_by(user_id=userid).all()
     return games_of_user
 
 
@@ -36,5 +36,5 @@ def get_newes_public_games():
 #tags connections
 
 def get_tags_of_games(gameid):
-    tags_of_game = DBSession.query(tags).join(game_tag_rel).filter_by(game_tag_rel.game_id==gameid).all()
+    tags_of_game = DBSession.query(tags).join(game_tag_rel).filter_by(game_id=gameid).all()
     return tags_of_game
