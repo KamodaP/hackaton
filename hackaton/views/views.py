@@ -177,7 +177,7 @@ class CommonViews:
         import logging
         log = logging.getLogger(__name__)
 
-        if 'form.submitted' in request.params:
+        if 'game_submit' in request.params:
             iter = 0
             body1 = 'in_val_1_'
             body2 = 'in_val_2_'
