@@ -6,7 +6,7 @@ from ..database.models import DBSession, users
 
 def groupfinder(userid, request):
     user = DBSession.query(users).filter_by(email_addr = userid).first()
-    if uaser is not None:
+    if user is not None:
         return ['group:editors']
 
 def check_login(userid, passwd):
