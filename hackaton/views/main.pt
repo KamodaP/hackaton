@@ -6,7 +6,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="${request.static_url('hackaton:materialize/css/materialize.min.css')}" type="text/css" media="screen,projection"/>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="${request.static_url('hackaton:materialize/js/materialize.js)}"></script>
+	<script src="${request.static_url('hackaton:materialize/js/materialize.js')}"></script>
 
 </head>
 <body>
