@@ -20,7 +20,7 @@ from ..login_module.security import check_login
 from os import path
 
 _here = path.dirname(__file__)
-_icon = open(path.join(_here), '', 'favicon.ico')
+_icon = open(path.join(_here, '', 'favicon.ico'))
 _fi_response = Response(content_type='image/x-icon', body=_icon)
 
 @view_config
