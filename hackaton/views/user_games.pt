@@ -66,10 +66,12 @@
 </table>
 </div>
 
+<script>
 $(':radio').change(function (event) {
     var id = $(this).data('id');
     $('#' + id).addClass('container').siblings().removeClass('none');
 });
+</script>
 
 </div>
 </html>
