@@ -25,7 +25,8 @@ from ..database.data_source import (
     get_game_data,
     get_user,
     set_user,
-    set_game_with_data
+    set_game_with_data,
+    get_user_id_by_email
 )
     
 from ..login_module.security import check_login
@@ -182,7 +183,8 @@ class CommonViews:
     def add_game(self):
         request = self.request
         #TO-DO: Check if user is registered
-        login = ''
+        login = request.logged_in
+        user_id = get_user_id_by_email(email)
         game_url = request.route_url('add_game')
         referrer = request.url
         if referrer == game_url:
@@ -206,7 +208,7 @@ class CommonViews:
                 data.append((val1, val2))
             if len(data) > 0:
                 game_name = request.params.get('game_name', '')
-                set_game_with_data(game_name, 1, 0, data)
+                set_game_with_data(game_name, user_id, 0, data)
                 url = request.route_url('home')
                 headers = remember(request, login)
                 return HTTPFound(location=url, headers=headers)

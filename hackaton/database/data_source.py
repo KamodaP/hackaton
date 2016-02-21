@@ -6,6 +6,10 @@ def get_user(userid):
     user = DBSession.query(users).filter_by(id=userid).first()
     return user
 
+def get_user_id_by_email(email):
+    user = DBSession.query(users).filter_by(email_addr = email).first()
+    return user.id
+
 def set_user(user_name, login, password):
     user = users(user_name = user_name, email_addr = login, pswd_hash = password, respect = 0)
     DBSession.add(user)
