@@ -6,37 +6,37 @@
     <form class="col s12" method="post">
 		<div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
+          <input name="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
 	  	<p>
-			<input name="group1" type="radio" id="name" checked="checked"/>
+			<input name="group1" type="radio" id="name" checked="checked" value="1"/>
 			<label for="name"></label>
 		</p>
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <input placeholder="Placeholder" id="first_name" name="first_name" type="text" class="validate">
           <label for="first_name">First Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" name = "last_name" type="text" class="validate">
           <label for="last_name">Last Name</label>
         </div>
 		</div>
 	  <div class="row">
 	  	<p>
-			<input name="group1" type="radio" id="nick" />
+			<input name="group1" type="radio" id="nick" value="2"/>
 			<label for="nick"></label>
 		</p>
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">Nick</label>
+          <input placeholder="Placeholder" name="nick" id="nick" type="text" class="validate">
+          <label for="nick">Nick</label>
         </div>
 		</div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
+          <input id="password" name="password" type="password" class="validate">
           <label for="password">Password</label>
         </div>
       </div>

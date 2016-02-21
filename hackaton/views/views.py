@@ -119,10 +119,12 @@ class CommonViews:
         user_name = ''
         password = ''
         if 'user_submit' in request.params:
-            login = request.params['login']
-            user_name = request.params['user_name']
+            email = request.params['email']
+            first_name = request.params['first_name']
+            last_name  = request.params['last_name']
+            nick = request.params['nick']
             password = request.params['password']
-            set_user(user_name = user_name, password = password, login = login)
+            set_user(user_name = first_name + ' ' + last_name, password = password, login = email)
             headers = remember(request, login)
             return HTTPFound(location = came_from, headers = headers)
         return dict(
