@@ -190,6 +190,7 @@ class CommonViews:
                     message = 'All fields must be filled'
                     return {'messgae' : message}
                 data.append((val1, val2))
+            log.debug('Records added: %s', str(len(data)))
             if len(data) > 0:
                 log.debug('data found')
                 game_name = request.params.get('game_name', '')
