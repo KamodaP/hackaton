@@ -14,9 +14,14 @@
 		<nav role="navigation">
 			<div class="nav-wrapper container">
 				<a id="logo-container" href="#" class="brand-logo">logo<!--<img width="150" src="images/logo.png" alt="Return to the homepage" />--></a>	
-				<div class="right">
-					<p class="btn"><a href="#">Sign up</a></p>
-					<p class="btn"><a href="#">Sign in</a></p>
+				<div  tal:condition = "view.logged_in is None"
+					class="right">
+					<p class="btn"><a href="${request.route_url('register')}">Register</a></p>
+					<p class="btn"><a href="${request.route_url('login')}">Log in</a></p>
+				</div>
+				<div  tal:condition = "view.logged_in is not None"
+					class="right">
+					<p class="btn"><a href="${request.route_url('logout')}">Log out</a></p>
 				</div>
 				<ul class="hide-on-med-and-down right">
 					<li><a href="#">lol</a></li>
