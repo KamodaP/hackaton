@@ -47,7 +47,7 @@ class CommonViews:
         request = self.request
         register_url = request.route_url('register')
         referrer = request.url
-        if referrer == login_url:
+        if referrer == register_url:
             referrer = '/'
         came_from = request.params.get('came_from', referrer)
         message = ''
