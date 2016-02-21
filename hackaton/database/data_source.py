@@ -35,11 +35,11 @@ def get_games_of_user(userid):
     return games_of_user
 
 def get_public_games_of_user(userid):
-    games_of_user = DBSession.query(games).join(game_user_rel).filter_by(user_id=userid).filter_by(status=0).all()
+    games_of_user = DBSession.query(games).filter_by(status=0).join(game_user_rel).filter_by(user_id=userid).all()
     return games_of_user
 
 def get_private_games_of_user(userid):
-    games_of_user = DBSession.query(games).join(game_user_rel).filter_by(user_id=userid).filter_by(status=1).all()
+    games_of_user = DBSession.query(games).filter_by(status=1).join(game_user_rel).filter_by(user_id=userid).all()
     return games_of_user
 
 def get_game_by_id(gameid):
