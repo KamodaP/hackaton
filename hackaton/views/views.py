@@ -82,7 +82,7 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                link = self.request.request_url("game.id")
+                link = self.request.request_url('game_view')
                 all_game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             public_games = get_public_games_of_user(login)
@@ -94,7 +94,7 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                link = self.request.request_url("game.id")
+                link = self.request.request_url('game_view')
                 public_game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             private_games = get_private_games_of_user(login)
@@ -106,7 +106,7 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                link = self.request.request_url("game.id")
+                link = self.request.request_url('game_view')
                 private_game_records.append({'link' : link,'id' : game.id, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View', 'logged_in' : self.request.authenticated_userid}
