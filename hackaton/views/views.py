@@ -101,7 +101,7 @@ class CommonViews:
             private_games = get_private_games_of_user(login)
             private_game_records = []
 
-            for game in all_games:
+            for game in private_games:
                 tags = get_tags_of_games(game.id)#[{'tag' : 'tag1'}, {'tag' : 'tag2'}, {'tag' : 'tag3'}]#None #get from DB for game
                 user = get_user(game.owner_id)#None #get from DB for game
                 super_tag = ""
