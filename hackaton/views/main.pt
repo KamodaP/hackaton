@@ -24,7 +24,7 @@
 					<p class="btn"><a href="${request.route_url('logout')}">Log out</a></p>
 				</div>
 				<ul class="hide-on-med-and-down right">
-					<li><a href="#">lol</a></li>
+					<li><a href="${request.route_url('user_games')}">User Games</a></li>
 					<li><a href="#">lol2</a></li>
 					<li><a href="#">lol3</a></li>
 					<li><a href="#">lol4</a></li>
