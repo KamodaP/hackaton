@@ -176,15 +176,12 @@ class CommonViews:
         came_from = request.params.get('came_from', referrer)
         message = ''
 
-        import logging
-        log = logging.getLogger(__name__)
 
         if 'game_submit' in request.params:
             iter = 0
             body1 = 'in_val_1_'
             body2 = 'in_val_2_'
             data = []
-            log.debug('submited')
             while (body1 + str(iter)) in request.params:
                 val1 = request.params.get(body1 + str(iter), None)
                 val2 = request.params.get(body2 + str(iter), None)
@@ -193,9 +190,7 @@ class CommonViews:
                     message = 'All fields must be filled'
                     return {'messgae' : message}
                 data.append((val1, val2))
-            log.debug('Records added: %s', str(len(data)))
             if len(data) > 0:
-                log.debug('data found')
                 game_name = request.params.get('game_name', '')
                 set_game_with_data(game_name, 1, 0, data)
                 url = request.route_url('home')
