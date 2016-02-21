@@ -14,12 +14,12 @@
 		<nav role="navigation">
 			<div class="nav-wrapper container">
 				<a id="logo-container" href="#" class="brand-logo">logo<!--<img width="150" src="${request.static_url('hackaton:static/images/logo.png')}" alt="Return to the homepage" />--></a>	
-				<div  tal:condition="logged_in is None"
+				<div  tal:condition="view.logged_in is None"
 					class="right">
 					<p class="btn"><a href="${request.route_url('register')}">Register</a></p>
 					<p class="btn"><a href="${request.route_url('login')}">Log in</a></p>
 				</div>
-				<div  tal:condition="logged_in is not None"
+				<div  tal:condition="view.logged_in is not None"
 					class="right">
 					<p class="btn"><a href="${request.route_url('logout')}">Log out</a></p>
 				</div>
