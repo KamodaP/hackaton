@@ -195,7 +195,7 @@ class CommonViews:
             if len(data) > 0:
                 log.debug('data found')
                 game_name = request.params.get('game_name', '')
-                set_game_with_data(game_name, 0, 0, data)
+                set_game_with_data(game_name, 1, 0, data)
                 url = request.route_url('home')
                 headers = remember(request, login)
                 return HTTPFound(location=url, headers=headers)
