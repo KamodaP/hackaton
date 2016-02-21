@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="input-field col s12">
 			<input id="game_name" type="taxt" class="validate">
-			<label for="email">Email</label>
+			<label style="position:static;">Game name</label>
 		</div>
 	</div>
 
@@ -18,7 +18,7 @@
 				<th data-field="value_2">Value 2</th>
 			</tr>
 		</thead>
-		<tbody class="data_container">
+		<tbody id="data_container">
 			<tr>
 				<td><input id="in_val_1" type="text" class="validate"></td>
 				<td><input id="in_val_2" type="text" class="validate"></td>
