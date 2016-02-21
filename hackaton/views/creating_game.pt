@@ -2,7 +2,7 @@
 
 <div metal:fill-slot="content">
 
-	<form class="col s12">
+	<form class="col s12" method="get">
 	<div class="row">
 		<div class="input-field col s12">
 			<input name="game_name" type="text" class="validate">
