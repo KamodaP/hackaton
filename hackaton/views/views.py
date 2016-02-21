@@ -44,9 +44,6 @@ class CommonViews:
     def __init__(self, request):
         self.request = request
         self.logged_in = request.authenticated_userid
-        import logging
-        log = logging.getLogger(__name__)
-        log.debug('authentication: %s', self.logged_in)
         
     @view_config(route_name='home')
     def home(self):
@@ -61,11 +58,11 @@ class CommonViews:
                 super_tag = super_tag + ';' + tag.tag
             game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-        return {'game_records' : game_records, 'name': 'Home View'}
+        return {'game_records' : game_records, 'name': 'Home View', 'logged_in' : request.authenticated_userid}
         
     @view_config(route_name='about')
     def about(self):
-        return {'name': 'About View'}
+        return {'name': 'About View', 'logged_in' : request.authenticated_userid}
 
     @view_config(route_name='user_games', renderer = 'user_games.pt')
     def user_games(self):
@@ -104,7 +101,7 @@ class CommonViews:
                     super_tag = super_tag + ';' + tag.tag
                 private_game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-            return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View'}
+            return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View', 'logged_in' : request.authenticated_userid}
         else:
             request = self.request
             return exc.HTTPFound(request.route_url("register"))   # Redirect
@@ -199,7 +196,7 @@ class CommonViews:
                 url = request.route_url('home')
                 headers = remember(request, login)
                 return HTTPFound(location=url, headers=headers)
-        return {'request' : request, 'came_from' : came_from}
+        return {'request' : request, 'came_from' : came_from, 'logged_in' : request.authenticated_userid}
         
     @view_config(route_name='logout')
     def logout(self):
