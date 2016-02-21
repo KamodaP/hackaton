@@ -28,6 +28,7 @@
     <Content Include="hackaton.egg-info\requires.txt" />
     <Content Include="hackaton.egg-info\SOURCES.txt" />
     <Content Include="hackaton.egg-info\top_level.txt" />
+    <Content Include="hackaton\favicon.ico" />
     <Content Include="hackaton\static\pyramid-16x16.png" />
     <Content Include="hackaton\static\pyramid.png" />
     <Content Include="hackaton\static\theme.css" />
