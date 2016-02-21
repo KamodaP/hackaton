@@ -54,6 +54,7 @@ def set_game(game_name, owner_id, status):
 def set_game_with_data(game_name, owner_id, status, data):
     game = games(game_name = game_name, owner_id = owner_id, status = status)
     DBSession.add(game)
+    DBSession.flush()
     game_id = game.id
     
     import logging
