@@ -4,28 +4,28 @@
 <div class="slider container">
     <ul class="slides">
       <li>
-        <img width="300" src="images/logo.png"> 
+        <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}"> 
         <div class="caption center-align">
           <h3>Easy way to learn</h3>
           <h5 class="light grey-text text-lighten-3">Welcome on the site which will help with your studies threw set of different games.</h5>
         </div>
       </li>
       <li>
-        <img width="300" src="images/logo.png"> 
+        <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}"> 
         <div class="caption left-align">
           <h3>Create ans share</h3>
           <h5 class="light grey-text text-lighten-3">Create your own Quizes and play educational games. You will learn what you need in no time!</h5>
         </div>
       </li>
       <li>
-        <img width="300" src="images/logo.png"> 
+        <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}"> 
         <div class="caption right-align">
           <h3>New Learning experience</h3>
           <h5 class="light grey-text text-lighten-3">Learn with us whatever you need!</h5>
         </div>
       </li>
       <li>
-        <img width="300" src="images/logo.png">
+        <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}">
         <div class="caption center-align">
           <h3>Don't waste you time! >> joins us mwahaha</h3>
           <h5 class="light grey-text text-lighten-3">Gather points when others will positively assess you quizes!</h5>
