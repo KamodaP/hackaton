@@ -104,7 +104,7 @@ class CommonViews:
                 headers = remember(request, login)
                 return HTTPFound(location = came_from,
                     headers=headers)
-        message = 'Failed login'
+            message = 'Failed login'
         return dict(
             name = 'Login',
             message = message,
@@ -127,6 +127,7 @@ class CommonViews:
 
         if 'form.submitted' in request.params:
             pass
+        return {}
         
     @view_config(route_name='logout')
     def logout(self):
