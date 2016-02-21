@@ -1,0 +1,25 @@
+<html metal:use-macro="load: main.pt">
+
+<div metal:fill-slot="content">
+
+<div><h3 tal:repeat="item game_name">${item.game_name}</h3></div>
+
+<div class = "container" id="all">
+<table>
+	<thead>
+		<tr>
+			<th data-field="val_1">Value 1</th>
+			<th data-field="val_2">Value 2</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr tal:repeat="item data_records"><a href="${item.link}">
+			<td>${item.val_1}</td>
+			<td>${item.val_2}</td>
+		</a></tr>
+	</tbody>
+</table>
+</div>
+
+</div>
+</html>

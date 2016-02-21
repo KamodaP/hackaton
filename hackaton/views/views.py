@@ -21,6 +21,8 @@ from ..database.data_source import (
     get_games_of_user,
     get_public_games_of_user,
     get_private_games_of_user,
+    get_game_by_id,
+    get_game_data,
     get_user,
     set_user
 )
@@ -76,7 +78,8 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                all_game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
+                link = self.request.request_url("game.id")
+                all_game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             public_games = get_public_games_of_user(login)
             public_game_records = []
@@ -87,7 +90,8 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                public_game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
+                link = self.request.request_url("game.id")
+                public_game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             private_games = get_private_games_of_user(login)
             private_game_records = []
@@ -98,13 +102,21 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                private_game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
+                link = self.request.request_url("game.id")
+                private_game_records.append({'link' : link,'id' : game.id, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View'}
         else:
             request = self.request
             return exc.HTTPFound(request.route_url("register"))   # Redirect
 
+    @view_config(route_name = 'game_view', renderer = 'game_view.pt')
+    def game_view(self):
+        gameid = coś_tu_ma_być
+        game_name = get_game_by_id(gameid)
+        data_records = get_game_data(gameid)
+        return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
+    
     @view_config(route_name = 'register', renderer = 'user_register.pt')
     def register(self):
         request = self.request

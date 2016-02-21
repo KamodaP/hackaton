@@ -19,11 +19,11 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item all_game_records">
+		<tr tal:repeat="item all_game_records"><a href="${item.link}?item.id">
 			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
-		</tr>
+		</a></tr>
 	</tbody>
 </table>
 </div>

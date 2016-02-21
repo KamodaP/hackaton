@@ -38,6 +38,9 @@ def get_private_games_of_user(userid):
     games_of_user = DBSession.query(games).join(game_user_rel).filter_by(user_id=userid).filter_by(status=1).all()
     return games_of_user
 
+def get_game_by_id(gameid):
+    game = DBSession.query(games).filter_by(id = gameid).first()
+    return game
 
 def get_newes_public_games():
     newest_games = DBSession.query(games).filter_by(status=0).order_by(games.id.desc()).limit(50)
