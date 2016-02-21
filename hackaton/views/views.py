@@ -30,6 +30,7 @@ _fi_response = Response(content_type='image/x-icon', body=_icon)
 @view_config(route_name='favicon')
 def favicon(context, request):
     response = _fi_response
+    return response
 
 
 @view_defaults(renderer = 'home.pt')
