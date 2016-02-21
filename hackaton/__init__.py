@@ -32,6 +32,7 @@ def main(global_config, **settings):
     config.add_route('logout', '/logout')
     config.add_route('register', '/register')
     config.add_route('add_game', '/add_game')
+    config.add_route('user_games', '/user_games')
     config.add_static_view(name='static', path='hackaton:static', cache_max_age=3600)
     config.scan()
     return config.make_wsgi_app()
