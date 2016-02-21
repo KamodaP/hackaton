@@ -9,6 +9,10 @@ from pyramid.view import (
     view_defaults
     )
 
+from pyramid.response import (
+    Response
+)
+
 from ..database.data_source import (
     get_newes_public_games,
     get_tags_of_games,
