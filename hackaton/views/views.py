@@ -20,7 +20,8 @@ from ..database.data_source import (
     get_public_games_of_user,
     get_private_games_of_user,
     get_user,
-    set_user
+    set_user,
+    set_game_with_data
 )
     
 from ..login_module.security import check_login
@@ -168,9 +169,23 @@ class CommonViews:
         if referrer == game_url:
             referrer = '/'
         came_from = request.params.get('came_from', referrer)
+        message = ''
 
         if 'form.submitted' in request.params:
-            pass
+            iter = 0
+            body1 = 'in_val_1_'
+            body2 = 'in_val_2_'
+            data = []
+            while body1 + str(iter) in request.params:
+                val1 = request.params.get(body1 + str(iter), None)
+                val2 = request.params.get(body2 + str(iter), None)
+                if val1 is None or val2 is None:
+                    message = 'All fields must be filled'
+                    return {'messgae' : message}
+                data.append((val1, val2))
+            if len(data) > 0:
+                game_name = request.params.get('game_name', '')
+                set_game_with_data(game_name, 0, 0, data)
         return {}
         
     @view_config(route_name='logout')
