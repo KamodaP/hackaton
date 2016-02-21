@@ -25,6 +25,7 @@ def main(global_config, **settings):
     config.set_authentication_policy(authn_policy)
     config.set_authorization_policy(authz_policy)
     
+    config.add_route('favicon', '/favicon.ico')
     config.add_route('home', '/')
     config.add_route('about', '/about')
     config.add_route('login', '/login')

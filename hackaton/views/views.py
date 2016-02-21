@@ -12,10 +12,21 @@ from pyramid.view import (
 from ..database.data_source import (
     get_newes_public_games,
     get_tags_of_games,
-    get_user
+    get_user,
+    set_user
 )
     
 from ..login_module.security import check_login
+from os import path
+
+_here = path.dirname(__file__)
+_icon = open(path.join(_here), '', 'favicon.ico')
+_fi_response = Response(content_type='image/x-icon', body=_icon)
+
+@view_config
+def favicon(request):
+    response = _fi_response
+
 
 @view_defaults(renderer = 'home.pt')
 class CommonViews:
@@ -58,7 +69,7 @@ class CommonViews:
             login = request.params['login']
             user_name = request.params['user_name']
             password = request.params['password']
-            #add user
+            set_user(user_name = user_name, password = password, login = login)
             headers = remember(request, login)
             return HTTPFound(location = came_from, headers = headers)
         return dict(
