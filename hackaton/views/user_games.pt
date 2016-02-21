@@ -2,11 +2,11 @@
 
 <div metal:fill-slot="content">
 
-<div>
+<form>
   <input type="radio" name="game_list_type" data-id="all" checked="checked"> All your games<br>
   <input type="radio" name="game_list_type" data-id="public"> Your public games<br>
   <input type="radio" name="game_list_type" data-id="private"> Your private games
-</div>
+</form>
 
 
 <div class = "container" id="all">
@@ -19,11 +19,11 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item all_game_records"><a href="${request.route_url('game_view')}?item.link">
-			<td>${item.name}</td>
+		<tr tal:repeat="item all_game_records">
+			<a href="${request.route_url('game_view')}?item.link"><td>${item.name}</td></a>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
-		</a></tr>
+		</tr>
 	</tbody>
 </table>
 </div>
