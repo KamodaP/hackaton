@@ -10,7 +10,6 @@
 		</div>
 	</div>
 
-	<form>
 	<div class = "container">
 	<table>
 		<thead>
@@ -27,17 +26,17 @@
 		</tbody>
 		<a class="btn-floating btn-medium waves-effect waves-light red data_appender"><i class="material-icons">add</i></a>
 	</table>
-	</div>	  
-    </form>
+	</div>
 
 	<div class="container">
 		<div class="row right white">
 			<!--<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>-->
-			<input type="submit" class="btn"><a href="#">Add Game</a></p>
+			<input type="submit">
+			<p class="btn"><a href="#">Add Game</a></p>
 			<p class="btn"><a href="#">Cancel</a></p>
 		</div>
-	</div>
-	</form>
+	</div>	  
+    </form>
 <script>
 var count = 0;
 		
