@@ -113,6 +113,20 @@ class CommonViews:
             login = login,
             password = password,
         )
+
+    @view_config(route_name='add_game', renderer='creating_game.pt')
+    def add_game(self):
+        request = self.request
+        #TO-DO: Check if user is registered
+
+        game_url = request.route_url('add_game')
+        referrer = request.url
+        if referrer == game_url:
+            referrer = '/'
+        came_from = request.params.get('came_from', referrer)
+
+        if 'form.submitted' in request.params:
+            pass
         
     @view_config(route_name='logout')
     def logout(self):

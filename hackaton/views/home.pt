@@ -7,7 +7,7 @@
         <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}"> 
         <div class="caption center-align">
           <h3>Easy way to learn</h3>
-          <h5 class="light grey-text text-lighten-3">Welcome on the site which will help with your studies threw set of different games.</h5>
+          <h5 class="light grey-text text-lighten-3">Welcome on the site which will help with your studies through a set of different games.</h5>
         </div>
       </li>
       <li>

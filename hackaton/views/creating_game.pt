@@ -18,23 +18,31 @@
 				<th data-field="value_2">Value 2</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr tal:repeat="item game_records">
+		<tbody class="data_container">
+			<tr>
 				<td><input id="in_val_1" type="text" class="validate"></td>
 				<td><input id="in_val_2" type="text" class="validate"></td>
 			</tr>
 		</tbody>
+		<a class="btn-floating btn-medium waves-effect waves-light red data_appender"><i class="material-icons">add</i></a>
 	</table>
 	</div>	  
     </form>
 
 	<div class="container">
 		<div class="row right white">
-			<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-			<!--<p class="btn"><a href="#">Add Game</a></p>
-			<p class="btn"><a href="#">Cancel</a></p>-->
+			<!--<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>-->
+			<p class="btn"><a href="#">Add Game</a></p>
+			<p class="btn"><a href="#">Cancel</a></p>
 		</div>
 	</div>
-
+<script>
+var count = 0;
+		
+$('.data_appender').click(function() {
+	$('#data_container').append('<tr><td><input id="in_val_1_' + count + '" type="text" class="validate"></td><td><input id="in_val_2" type="text" class="validate"></td></tr>');
+	count += 1;
+});
+</script>
 </div>
 </html>
