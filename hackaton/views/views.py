@@ -27,8 +27,8 @@ _here = path.dirname(__file__)
 _icon = open(path.join(_here, '', 'favicon.ico')).read()
 _fi_response = Response(content_type='image/x-icon', body=_icon)
 
-@view_config
-def favicon(request):
+@view_config(route_name='favicon')
+def favicon(context, request):
     response = _fi_response
 
 
