@@ -64,7 +64,7 @@ class CommonViews:
     @view_config(route_name='user_games', renderer = 'user_games.pt')
     def user_games(self):
         login = self.logged_in
-        if self.request:
+        if self.logged_in:
             all_games = get_games_of_user(login)
             all_game_records  = []
 
