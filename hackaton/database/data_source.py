@@ -19,7 +19,6 @@ def get_game_data(gameid):
 def set_data(gameid, val1, val2):
     dataset = data(game_id = gameid, value_1 = val1, value_2 = val2)
     DBSession.add(dataset)
-    return True
 
 #games connections
 
@@ -35,6 +34,10 @@ def get_games_of_user(userid):
 def get_newes_public_games():
     newest_games = DBSession.query(games).filter_by(status=0).order_by(games.id.desc()).limit(50)
     return newest_games
+
+def set_game(game_name, owner_id, status):
+    game = games(game_name = game_name, owner_id = owner_id, status = status)
+    DBSession.add(game)
 
 
 #tags connections
