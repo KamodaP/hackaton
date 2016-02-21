@@ -3,9 +3,9 @@
 <div metal:fill-slot="content">
 
 <form>
-  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static"> All your games<br>
-  <input type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static"> Your public games<br>
-  <input type="radio" name="game_list_type" data-id="private" style="visibility:visible;position:static"> Your private games
+  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="position:static" value="all"> All your games<br>
+  <input type="radio" name="game_list_type" data-id="public" style="position:static" value="public"> Your public games<br>
+  <input type="radio" name="game_list_type" data-id="private" style="position:static" value="private"> Your private games
 </form>
 
 
@@ -19,8 +19,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item all_game_records">
-			<td><a href="${request.route_url('game_view')}${item.link}">${item.name}</a></td>
+		<tr tal:repeat="item all_game_records"  class="clickable-row" data-href=${request.route_url('game_view')}${item.link}">
+			<!--<td><a href="${request.route_url('game_view')}${item.link}">${item.name}</a></td>-->
+			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
 		</tr>
@@ -71,6 +72,18 @@ $(':radio').change(function (event) {
     var id = $(this).data('id');
     $('#' + id).addClass('container').siblings().removeClass('none');
 });
+$(function() {
+  $('.game_list_type').change(function() {
+    if($(this).val() == 'all') {$('#all').slideToggle('500');}
+    if($(this).val() == 'public') {$('#public').slideToggle('500');} 
+    if($(this).val() == 'private') {$('#private').slideToggle('500');}
+  });
+});
+
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
 </script>
 
 </div>
