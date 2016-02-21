@@ -2,7 +2,6 @@
 
 <div metal:fill-slot="content">
 
-<body>
 	<header>
 		<nav role="navigation">
 			<div class="nav-wrapper container">

@@ -8,6 +8,7 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="${request.static_url('hackaton:static/js/materialize.js')}"></script>
 </head>	
+<body>
 
 <div metal:define-slot="content"></div>
 
