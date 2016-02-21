@@ -35,6 +35,8 @@
     <Content Include="hackaton\templates\mytemplate.pt" />
     <Content Include="hackaton\views\home.pt" />
     <Content Include="hackaton\views\login.pt" />
+    <Content Include="hackaton\views\main.pt" />
+    <Content Include="hackaton\views\user_register.pt" />
     <Content Include="production.ini" />
     <Content Include="README.txt" />
   </ItemGroup>

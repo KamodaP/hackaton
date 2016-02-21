@@ -42,7 +42,7 @@ class CommonViews:
     def about(self):
         return {'name': 'About View'}
 
-    @view_config(route_name = 'register', renderer = 'register.pt')
+    @view_config(route_name = 'register', renderer = 'user_register.pt')
     def register(self):
         request = self.request
         register_url = request.route_url('register')
