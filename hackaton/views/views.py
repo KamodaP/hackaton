@@ -183,7 +183,7 @@ class CommonViews:
             body2 = 'in_val_2_'
             data = []
             log.debug('submited')
-            while body1 + str(iter) in request.params:
+            while (body1 + str(iter)) in request.params:
                 val1 = request.params.get(body1 + str(iter), None)
                 val2 = request.params.get(body2 + str(iter), None)
                 if val1 is None or val2 is None:
