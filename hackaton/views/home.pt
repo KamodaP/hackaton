@@ -7,13 +7,9 @@
 	<link rel="stylesheet" href="${request.static_url('hackaton:materialize/css/materialize.min.css')}" type="text/css" media="screen,projection"/>
 
 </head>
-<body>
-<div>
-	<a tal:condition = "view.logged_in is None"
-		href = "${request.route_url('login')}">Log In</a>
-	<a tal:condition = "view.logged_in is not None"
-		href = "${request.route_url('logout')}">Logout</a>
-</div>
+<html metal:use-macro="load: main.pt">
+
+<div metal:fill-slot="content">
 <div class = "container">
 <table>
 	<thead>
@@ -32,8 +28,5 @@
 	</tbody>
 </table>
 </div>
-
-<h1>Hi ${name}</h1>
-<p>About <a href = "${request.route_url('about')}">us</a></p>
-</body>
+</div>
 </html>
