@@ -1,8 +1,4 @@
-﻿USERS = {'editor': 'editor',
-	'viewer': 'viewer'}
-GROUPS = {'editor': ['group:editors']}
-
-from ..database.models import DBSession, users
+﻿from ..database.models import DBSession, users
 
 def groupfinder(userid, request):
     user = DBSession.query(users).filter_by(email_addr = userid).first()
