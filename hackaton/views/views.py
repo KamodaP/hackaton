@@ -16,6 +16,9 @@ from pyramid.response import (
 from ..database.data_source import (
     get_newes_public_games,
     get_tags_of_games,
+    get_games_of_user,
+    get_public_games_of_user,
+    get_private_games_of_user,
     get_user,
     set_user
 )
