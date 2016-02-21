@@ -51,6 +51,18 @@ def set_game(game_name, owner_id, status):
     DBSession.add(game)
 
 
+def set_game_with_data(game_name, owner_id, status, data):
+    game = games(game_name = game_name, owner_id = owner_id, status = status)
+    DBSession.add(game)
+    game_id = game.id
+    
+    import logging
+    log = logging.getLogger(__name__)
+    log.debug('Id: %s', game_id)
+    for (val1, val2) in data:
+        set_data(game_id, val1, val2)
+
+
 #tags connections
 
 def get_tags_of_games(gameid):

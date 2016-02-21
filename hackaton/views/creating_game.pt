@@ -2,10 +2,10 @@
 
 <div metal:fill-slot="content">
 
-	<form class="col s12">
+	<form class="col s12" method="post">
 	<div class="row">
 		<div class="input-field col s12">
-			<input id="game_name" type="text" class="validate">
+			<input name="game_name" type="text" class="validate">
 			<label style="position:static;">Game name</label>
 		</div>
 	</div>
@@ -20,8 +20,8 @@
 		</thead>
 		<tbody id="data_container">
 			<tr>
-				<td><input id="in_val_1" type="text" class="validate"></td>
-				<td><input id="in_val_2" type="text" class="validate"></td>
+				<td><input name="in_val_1_0" type="text" class="validate"></td>
+				<td><input name="in_val_2_0" type="text" class="validate"></td>
 			</tr>
 		</tbody>
 		<a class="btn-floating btn-medium waves-effect waves-light red data_appender"><i class="material-icons">add</i></a>
@@ -31,17 +31,17 @@
 	<div class="container">
 		<div class="row right white">
 			<!--<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>-->
-			<input type="submit">
+			<input type="submit" name="game_submit">
 			<p class="btn"><a href="#">Add Game</a></p>
 			<p class="btn"><a href="#">Cancel</a></p>
 		</div>
 	</div>	  
     </form>
 <script>
-var count = 0;
+var count = 1;
 		
 $('.data_appender').click(function() {
-	$('#data_container').append('<tr><td><input id="in_val_1_' + count + '" type="text" class="validate"></td><td><input id="in_val_2" type="text" class="validate"></td></tr>');
+	$('#data_container').append('<tr><td><input name="in_val_1_' + count + '" type="text" class="validate"></td><td><input name="in_val_2_' + count + '" type="text" class="validate"></td></tr>');
 	count += 1;
 });
 </script>

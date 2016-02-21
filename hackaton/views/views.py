@@ -24,7 +24,8 @@ from ..database.data_source import (
     get_game_by_id,
     get_game_data,
     get_user,
-    set_user
+    set_user,
+    set_game_with_data
 )
     
 from ..login_module.security import check_login
@@ -45,6 +46,9 @@ class CommonViews:
     def __init__(self, request):
         self.request = request
         self.logged_in = request.authenticated_userid
+        import logging
+        log = logging.getLogger(__name__)
+        log.debug('Auth: %s', self.logged_in)
         
     @view_config(route_name='home')
     def home(self):
@@ -59,11 +63,11 @@ class CommonViews:
                 super_tag = super_tag + ';' + tag.tag
             game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-        return {'game_records' : game_records, 'name': 'Home View'}
+        return {'game_records' : game_records, 'name': 'Home View', 'logged_in' : self.request.authenticated_userid}
         
     @view_config(route_name='about')
     def about(self):
-        return {'name': 'About View'}
+        return {'name': 'About View', 'logged_in' : self.request.authenticated_userid}
 
     @view_config(route_name='user_games', renderer = 'user_games.pt')
     def user_games(self):
@@ -105,7 +109,7 @@ class CommonViews:
                 link = self.request.request_url("game.id")
                 private_game_records.append({'link' : link,'id' : game.id, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-            return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View'}
+            return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View', 'logged_in' : self.request.authenticated_userid}
         else:
             request = self.request
             return exc.HTTPFound(request.route_url("register"))   # Redirect
@@ -129,11 +133,13 @@ class CommonViews:
         login = ''
         user_name = ''
         password = ''
-        if 'form.submited' in request.params:
-            login = request.params['login']
-            user_name = request.params['user_name']
+        if 'user_submit' in request.params:
+            email = request.params['email']
+            first_name = request.params['first_name']
+            last_name  = request.params['last_name']
+            nick = request.params['nick']
             password = request.params['password']
-            set_user(user_name = user_name, password = password, login = login)
+            set_user(user_name = first_name + ' ' + last_name, password = password, login = email)
             headers = remember(request, login)
             return HTTPFound(location = came_from, headers = headers)
         return dict(
@@ -161,8 +167,7 @@ class CommonViews:
             password = request.params['password']
             if check_login(login, password) == True:
                 headers = remember(request, login)
-                return HTTPFound(location = came_from,
-                    headers=headers)
+                return HTTPFound(location = came_from, headers = headers)
             message = 'Failed login'
         return dict(
             name = 'Login',
@@ -177,16 +182,35 @@ class CommonViews:
     def add_game(self):
         request = self.request
         #TO-DO: Check if user is registered
-
+        login = ''
         game_url = request.route_url('add_game')
         referrer = request.url
         if referrer == game_url:
             referrer = '/'
         came_from = request.params.get('came_from', referrer)
+        message = ''
 
-        if 'form.submitted' in request.params:
-            pass
-        return {}
+
+        if 'game_submit' in request.params:
+            iter = 0
+            body1 = 'in_val_1_'
+            body2 = 'in_val_2_'
+            data = []
+            while (body1 + str(iter)) in request.params:
+                val1 = request.params.get(body1 + str(iter), None)
+                val2 = request.params.get(body2 + str(iter), None)
+                iter += 1
+                if val1 is None or val2 is None:
+                    message = 'All fields must be filled'
+                    return {'messgae' : message}
+                data.append((val1, val2))
+            if len(data) > 0:
+                game_name = request.params.get('game_name', '')
+                set_game_with_data(game_name, 1, 0, data)
+                url = request.route_url('home')
+                headers = remember(request, login)
+                return HTTPFound(location=url, headers=headers)
+        return {'request' : request, 'came_from' : came_from, 'logged_in' : self.request.authenticated_userid}
         
     @view_config(route_name='logout')
     def logout(self):

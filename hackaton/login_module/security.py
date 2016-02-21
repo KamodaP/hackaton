@@ -1,12 +1,9 @@
-﻿USERS = {'editor': 'editor',
-	'viewer': 'viewer'}
-GROUPS = {'editor': ['group:editors']}
-
-from ..database.models import DBSession, users
+﻿from ..database.models import DBSession, users
 
 def groupfinder(userid, request):
-	if userid in USERS:
-		return GROUPS.get(userid, [])
+    user = DBSession.query(users).filter_by(email_addr = userid).first()
+    if user is not None:
+        return ['group:editors']
 
 def check_login(userid, passwd):
     user = DBSession.query(users).filter_by(email_addr = userid, pswd_hash = passwd).first()
