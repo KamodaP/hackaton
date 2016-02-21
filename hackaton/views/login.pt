@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-	<title>Halcyon</title>
-</head>
-<body>
-<h1>Login</h1>
+<html metal:use-macro="load: main.pt">
+
+<div metal:fill-slot="content">
 <span tal:replace="message"/>
 
 <form action="${url}" method = "post">
@@ -19,5 +15,5 @@
 	<input type = "submit" name = "form.submitted"
 		value = "Log In"/>
 </form>
-</body>
+</div>
 </html>
