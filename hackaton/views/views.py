@@ -166,7 +166,7 @@ class CommonViews:
     def add_game(self):
         request = self.request
         #TO-DO: Check if user is registered
-
+        login = ''
         game_url = request.route_url('add_game')
         referrer = request.url
         if referrer == game_url:
@@ -197,6 +197,7 @@ class CommonViews:
                 game_name = request.params.get('game_name', '')
                 set_game_with_data(game_name, 0, 0, data)
                 url = request.route_url('home')
+                headers = remember(request, login)
                 return HTTPFound(location=url, headers=headers)
         return {'request' : request, 'came_from' : came_from}
         
