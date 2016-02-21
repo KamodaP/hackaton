@@ -73,8 +73,9 @@ class CommonViews:
     @view_config(route_name='user_games', renderer = 'user_games.pt')
     def user_games(self):
         login = self.logged_in
+        user_id = get_user_id_by_email(login)
         if self.logged_in:
-            all_games = get_games_of_user(login)
+            all_games = get_games_of_user(user_id)
             all_game_records  = []
 
             for game in all_games:
@@ -86,7 +87,7 @@ class CommonViews:
                 link = '?game=' + str(game.id)
                 all_game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-            public_games = get_public_games_of_user(login)
+            public_games = get_public_games_of_user(user_id)
             public_game_records = []
 
             for game in public_games:
@@ -98,7 +99,7 @@ class CommonViews:
                 link = '?game=' + str(game.id)
                 public_game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-            private_games = get_private_games_of_user(login)
+            private_games = get_private_games_of_user(user_id)
             private_game_records = []
 
             for game in all_games:
