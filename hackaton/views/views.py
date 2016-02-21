@@ -116,7 +116,7 @@ class CommonViews:
 
     @view_config(route_name = 'game_view', renderer = 'game_view.pt')
     def game_view(self):
-        gameid = request.GET.pop('game')
+        gameid = self.request.GET.pop('game')
         game_name = get_game_by_id(gameid)
         data_records = get_game_data(gameid)
         return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
