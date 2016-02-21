@@ -1,4 +1,6 @@
-﻿from pyramid.httpexceptions import HTTPFound
+﻿import pyramid.httpexceptions as exc
+
+from pyramid.httpexceptions import HTTPFound
 from pyramid.security import (
     remember,
     forget,
@@ -101,6 +103,7 @@ class CommonViews:
 
             return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View'}
         else:
+            request = self.request
             return exc.HTTPFound(request.route_url("register"))   # Redirect
 
     @view_config(route_name = 'register', renderer = 'user_register.pt')
