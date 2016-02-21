@@ -31,7 +31,7 @@ def get_games_of_owner(ownerid):
     return games_of_owner
 
 def get_games_of_user(userid):
-    games_of_user = DBSession.query(games).join(game_user_rel).filter_by(user_id=userid).all()
+    games_of_user = DBSession.query(games).filter_by(owner_id=userid).all()
     return games_of_user
 
 def get_public_games_of_user(userid):
