@@ -183,7 +183,7 @@ class CommonViews:
     def add_game(self):
         request = self.request
         #TO-DO: Check if user is registered
-        login = request.logged_in
+        login = request.authenticated_userid
         user_id = get_user_id_by_email(email)
         game_url = request.route_url('add_game')
         referrer = request.url
