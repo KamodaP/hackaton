@@ -1,5 +1,11 @@
 ﻿from .models import DBSession, data, games, users, tags, game_tag_rel, game_user_rel
 
+#user connections
+
+def get_user(userid):
+    user = DBSession.query(users).filter_by(id=userid).first()
+    return user
+
 #data connectios
 
 def get_game_data(gameid):

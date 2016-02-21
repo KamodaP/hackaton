@@ -10,7 +10,9 @@ from pyramid.view import (
     )
 
 from ..database.data_source import (
-    get_newes_public_games
+    get_newes_public_games,
+    get_tags_of_games,
+    get_user
 )
     
 from ..login_module.security import check_login
@@ -28,12 +30,12 @@ class CommonViews:
         game_records = []
 
         for game in games:
-            tags = [{'tag' : 'tag1'}, {'tag' : 'tag2'}, {'tag' : 'tag3'}]#None #get from DB for game
-            user = {'user_name' : 'Marek Marecki'}#None #get from DB for game
+            tags = get_tags_of_games(game.id)#[{'tag' : 'tag1'}, {'tag' : 'tag2'}, {'tag' : 'tag3'}]#None #get from DB for game
+            user = get_user(game.owner_id)#None #get from DB for game
             super_tag = ""
             for tag in tags:
-                super_tag = super_tag + ';' + tag['tag']
-            game_records.append({'name' : game.game_name, 'owner' : user['user_name'], 'tags' : super_tag})
+                super_tag = super_tag + ';' + tag.tag
+            game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
         return {'game_records' : game_records, 'name': 'Home View'}
         
