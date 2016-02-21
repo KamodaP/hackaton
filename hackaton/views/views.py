@@ -155,8 +155,7 @@ class CommonViews:
             password = request.params['password']
             if check_login(login, password) == True:
                 headers = remember(request, login)
-                return HTTPFound(location = came_from,
-                    headers=headers)
+                return HTTPFound(location = came_from, headers = headers)
             message = 'Failed login'
         return dict(
             name = 'Login',
