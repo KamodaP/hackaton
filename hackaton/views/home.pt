@@ -51,10 +51,10 @@
 	</tbody>
 </table>
 </div>
-</div>
 <script>
 	$(document).ready(function(){
 		$('.slider').slider({full_width: true});
 	});
 </script>
+</div>
 </html>
