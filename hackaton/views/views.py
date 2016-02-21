@@ -106,7 +106,7 @@ class CommonViews:
                 super_tag = ""
                 for tag in tags:
                     super_tag = super_tag + ';' + tag.tag
-                link = self.request.request_url("game.id")
+                link = '?game=' + str(game.id)
                 private_game_records.append({'link' : link,'id' : game.id, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
             return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View', 'logged_in' : self.request.authenticated_userid}
@@ -116,7 +116,7 @@ class CommonViews:
 
     @view_config(route_name = 'game_view', renderer = 'game_view.pt')
     def game_view(self):
-        gameid = coś_tu_ma_być
+        gameid = request.GET.pop('game')
         game_name = get_game_by_id(gameid)
         data_records = get_game_data(gameid)
         return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}

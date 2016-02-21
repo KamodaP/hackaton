@@ -19,7 +19,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item all_game_records"><a href="${item.link}?item.id">
+		<tr tal:repeat="item all_game_records"><a href="${request.route_url('game_view')}?item.link">
 			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
