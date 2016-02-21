@@ -14,8 +14,8 @@
 	</thead>
 	<tbody>
 		<tr tal:repeat="item data_records">
-			<td>${item.val_1}</td>
-			<td>${item.val_2}</td>
+			<td>${item.value_1}</td>
+			<td>${item.value_2}</td>
 		</tr>
 	</tbody>
 </table>
