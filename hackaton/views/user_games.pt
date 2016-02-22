@@ -2,6 +2,58 @@
 
 <div metal:fill-slot="content">
 
+<div class="container">
+	<div class="row">
+    <form class="col s12" method="post">
+		<div class="row">
+        <div class="input-field col s12">
+          <input name="email" id="email" type="email" class="validate" value="${user_data.email_addr}">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+	  	<p>
+			<input name="group1" type="radio" id="name" checked="checked" value="1"/>
+			<label for="name"></label>
+		</p>
+        <div class="input-field col s12">
+          <input placeholder="Placeholder" id="user_name" name="first_name" type="text" class="validate" value="${user_data.user_name}">
+          <label for="first_name">User Name</label>
+		</div>
+	  <div class="row">
+	  	<p>
+			<input name="group1" type="radio" id="nick" value="2"/>
+			<label for="nick"></label>
+		</p>
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" name="nick" id="nick" type="text" class="validate" value="${user_data.user_name}">
+          <label for="nick">Nick</label>
+        </div>
+		</div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="old_password" name="password" type="password" class="validate">
+          <label for="password"> Write Old Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="new_password" name="password" type="password" class="validate">
+          <label for="password">Write New Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="repeated_password" name="password" type="password" class="validate">
+          <label for="password">Repeat New Password</label>
+        </div>
+      </div>
+	  <input name="user_submit" type="submit">	  
+    </form>
+		<button>Edit</button>
+	</div>
+	</div>
+
 <form>
   <input class="show" type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="1"> All your games<br>
   <input class="show" type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static" value="2"> Your public games<br>

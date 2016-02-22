@@ -103,6 +103,7 @@ class CommonViews:
     def user_games(self):
         login = self.logged_in
         user_id = get_user_id_by_email(login)
+        user_data = get_user(user_id)
         if self.logged_in:
             all_games = get_games_of_user(user_id)
             all_game_records  = []
@@ -140,7 +141,7 @@ class CommonViews:
                 link = '?game=' + str(game.id)
                 private_game_records.append({'link' : link, 'id' : game.id, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
-            return {'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View', 'logged_in' : self.request.authenticated_userid}
+            return {'user_info' : user_info, 'all_game_records' : all_game_records, 'public_game_records' : public_game_records, 'private_game_records' : private_game_records, 'name': 'User Games View', 'logged_in' : self.request.authenticated_userid}
         else:
             request = self.request
             return exc.HTTPFound(request.route_url("register"))   # Redirect
