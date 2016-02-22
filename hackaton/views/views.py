@@ -75,7 +75,7 @@ class CommonViews:
         curid = self.request.params.get('curid', None)
 
         if curid is None:
-            curid = data_records.first().id
+            curid = data_records[0].id
         else:
             if 'next' in request.params:
                 found = 0
