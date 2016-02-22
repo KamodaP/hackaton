@@ -224,9 +224,10 @@ class CommonViews:
             last_name  = request.params['last_name']
             nick = request.params['nick']
             password = request.params['password']
-            set_user(user_name = first_name + ' ' + last_name, password = password, login = email)
-            headers = remember(request, login)
-            return HTTPFound(location = came_from, headers = headers)
+            if email is not None and password is not None and ((last_name is not None and first_name is not None) or nick is not None):
+               set_user(user_name = first_name + ' ' + last_name, password = password, login = email)
+               headers = remember(request, login)
+               return HTTPFound(location = came_from, headers = headers)
         return dict(
             name = 'Login',
             message = message,
