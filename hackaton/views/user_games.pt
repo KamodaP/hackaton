@@ -7,7 +7,7 @@
     <form class="col s12" method="post">
 	  <div class="row">
         <div class="input-field col s12">
-          <input name="email" id="email" type="email" class="validate" value="${user_data.email_addr}">
+          <input name="email" id="email" type="email" class="validate" value="${user_info.email_addr}">
           <label for="email">Email</label>
         </div>
       </div>
@@ -17,7 +17,7 @@
 			<label for="name"></label>
 		</p>
         <div class="input-field col s12">
-          <input placeholder="Placeholder" id="user_name" name="first_name" type="text" class="validate" value="${user_data.user_name}">
+          <input placeholder="Placeholder" id="user_name" name="first_name" type="text" class="validate" value="${user_info.user_name}">
           <label for="first_name">User Name</label>
 		</div>
 	  </div>
