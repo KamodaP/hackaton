@@ -78,6 +78,12 @@ class CommonViews:
         dataset = get_data_by_id(curid)
         data_records = get_game_data(gameid)
 
+        flash_url = request.route_url('flashcard')
+        referrer = request.url
+        if referrer == flash_url:
+            referrer = '/'
+        came_from = request.params.get('came_from', referrer)
+
         found = 0
         nextid = 0
         for rec in data_records:
@@ -86,15 +92,14 @@ class CommonViews:
                 nextid = rec.id
                 break
             if str(rec.id) == curid:
-                nextid = curid
                 found = 1
            
-        if nextid == curid:
-            return HTTPFound(self.request.route_url("game_view?game=" + gameid), headers=header)
+        if found == 0:
+            return HTTPFound(self.request.route_url(came_from), headers=header)
         log.debug('gameid: %s', gameid)
         log.debug('curid: %s', curid)
         log.debug('nextid: %s', nextid)
-        return {'curid' : curid, 'nextid' : nextid, 'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
+        return {'curid' : curid, 'nextid' : nextid, 'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid, 'came_from' : came_from}
 
         #if 'game' in self.request.GET.keys():
         #    gameid = self.request.GET.pop('game')
