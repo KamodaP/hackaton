@@ -73,7 +73,7 @@ class CommonViews:
         gameid = self.request.GET.pop('game')
         curid = self.request.GET.pop('data')
 
-        dataset = get_data_by_id(dataid)
+        dataset = get_data_by_id(curid)
         data_records = get_game_data(gameid)
 
         return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
