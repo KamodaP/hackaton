@@ -89,7 +89,7 @@ class CommonViews:
             log.debug('Cur id was None, now is: %s', curid)
             dataset = get_data_by_id(curid)
             header = remember(self.request, self.request.authenticated_userid)
-            self.request.params = {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
+            self.request.params.appendAll( {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid})
             return HTTPFound(self.request.route_url("flashcard"), headers=header)
         else:
             if 'next' in request.params:
