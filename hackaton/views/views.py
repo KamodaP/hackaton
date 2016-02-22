@@ -68,7 +68,7 @@ class CommonViews:
 
         return {'game_records' : game_records, 'name': 'Home View', 'logged_in' : self.request.authenticated_userid}
 
-    @view_config(route_name='flashcard')
+    @view_config(route_name='flashcard', renderer='flashcard.pt')
     def flashcard(self):
         gameid = self.request.GET.pop('game')
         curid = self.request.GET.pop('data')
