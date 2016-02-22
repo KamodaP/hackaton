@@ -4,9 +4,7 @@
 
 
 
-<form method="post">
-<input type="submit" name="next">
-</form>
+<a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">next</a>
 
 <div id="card">
 	<div class="front">

@@ -73,36 +73,55 @@ class CommonViews:
         gameid = -1
         import logging
         log = logging.getLogger(__name__)
-        
-        if 'game' in self.request.GET.keys():
-            gameid = self.request.GET.pop('game')
-            log.debug('Game id from GET: %s', gameid)
-        else:
-            gameid = self.request.params.get('gameid', None)
-            log.debug('Game id from params: %s', gameid)
-
-        data_records = get_game_data(gameid)
-        curid = self.request.params.get('curid', None)
-
-        if curid is None:
-            curid = data_records[0].id
-            log.debug('Cur id was None, now is: %s', curid)
-            dataset = get_data_by_id(curid)
-            header = remember(self.request, self.request.authenticated_userid)
-            return HTTPFound(request.route_url("flashcard"), headers=header)
-        else:
-            if 'next' in request.params:
-                found = 0
-                for rec in data_records:
-                    if rec.id == curid:
-                        found = 1
-                    if found == 1:
-                        curid = rec.id
-                        break
-                log.debug('Cur id found, new is: %s', curid)
+        gameid = self.request.GET.pop('game')
+        curid = self.request.GET.pop('data')
         dataset = get_data_by_id(curid)
-        header = remember(self.request, self.request.authenticated_userid)
-        return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
+        data_records = get_game_data(gameid)
+
+        found = 0
+        nextid = 0
+        for rec in data_records:
+            log.debug('recid: %d', rec.id) 
+            if rec.id == curid:
+                found = 1
+            if found == 1:
+                log.debug('found')
+                nextid = rec.id
+                break
+        
+        log.debug('gameid: %s', gameid)
+        log.debug('curid: %s', curid)
+        log.debug('nextid: %s', nextid)
+        return {'curid' : curid, 'nextid' : nextid, 'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
+
+        #if 'game' in self.request.GET.keys():
+        #    gameid = self.request.GET.pop('game')
+        #    log.debug('Game id from GET: %s', gameid)
+        #else:
+        #    gameid = self.request.params.get('gameid', None)
+        #    log.debug('Game id from params: %s', gameid)
+
+        #data_records = get_game_data(gameid)
+        #curid = self.request.params.get('curid', None)
+
+        #if curid is None:
+        #    curid = data_records[0].id
+        #    log.debug('Cur id was None, now is: %s', curid)
+        #    dataset = get_data_by_id(curid)
+        #    header = remember(self.request, self.request.authenticated_userid)
+        #    return HTTPFound(self.request.route_url("flashcard"), headers=header)
+        #else:
+        #    if 'next' in request.params:
+        #        found = 0
+        #        for rec in data_records:
+        #            if rec.id == curid:
+        #                found = 1
+        #            if found == 1:
+        #                curid = rec.id
+        #                break
+        #        log.debug('Cur id found, new is: %s', curid)
+        #dataset = get_data_by_id(curid)
+        #header = remember(self.request, self.request.authenticated_userid)
         
     @view_config(route_name='about')
     def about(self):
