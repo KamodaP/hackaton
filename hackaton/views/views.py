@@ -86,9 +86,11 @@ class CommonViews:
                 nextid = rec.id
                 break
             if str(rec.id) == curid:
+                nextid = curid
                 found = 1
            
-        
+        if nextid == curid:
+            return HTTPFound(self.request.route_url("game_view?game=" + gameid), headers=header)
         log.debug('gameid: %s', gameid)
         log.debug('curid: %s', curid)
         log.debug('nextid: %s', nextid)
