@@ -4,7 +4,7 @@
 
 
 
-<a href="${request.route_url('next_flash')}?game=tal:content="game_id"&data=tal:content="curid"">jfkasdljgklsdjg</a>
+<a href="${request.route_url('next_flash')}?game=${game_id}&data=${curid}">jfkasdljgklsdjg</a>
 
 </div>
 </html>
