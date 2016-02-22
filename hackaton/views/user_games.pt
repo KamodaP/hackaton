@@ -3,9 +3,9 @@
 <div metal:fill-slot="content">
 
 <form>
-  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="1"> All your games<br>
-  <input type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static" value="2"> Your public games<br>
-  <input type="radio" name="game_list_type" data-id="private" style="visibility:visible;position:static" value="3"> Your private games
+  <input class="show" type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="1"> All your games<br>
+  <input class="show" type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static" value="2"> Your public games<br>
+  <input class="show" type="radio" name="game_list_type" data-id="private" style="visibility:visible;position:static" value="3"> Your private games
 </form>
 
 
@@ -79,6 +79,12 @@ $('.show').bind('change',function(){
 	$('.public').toggle(showOrHide2);
 	$('.private').toggle(showOrHide3);
 });
+
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+		});
+    });
 </script>
 
 </div>
