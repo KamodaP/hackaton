@@ -11,7 +11,9 @@ tile {
 		float: left;
       }
       .front, .back {
-        padding: 10px;
+        text-align: center;
+		vertical-align: middle;
+		font-size: 30px;
       }
       .front {
         background-color: #80cbc4;
@@ -20,9 +22,9 @@ tile {
         background-color: #e8eaf6 ;
       }
 </style>
-
-<a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">next</a>
-
+<div>
+	<p class="btn"><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">Next</a></p>
+</div>
 <div class="container">
 <div class="card-grid tile z-depth-3" style="width:30em;height:20em;">
 	<div class="front">
