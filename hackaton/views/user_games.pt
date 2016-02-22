@@ -3,9 +3,9 @@
 <div metal:fill-slot="content">
 
 <form>
-  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="all"> All your games<br>
-  <input type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static" value="public"> Your public games<br>
-  <input type="radio" name="game_list_type" data-id="private" style="visibility:visible;position:static" value="private"> Your private games
+  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="1"> All your games<br>
+  <input type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static" value="2"> Your public games<br>
+  <input type="radio" name="game_list_type" data-id="private" style="visibility:visible;position:static" value="3"> Your private games
 </form>
 
 
@@ -67,23 +67,18 @@
 </div>
 
 <script>
-$(':radio').change(function (event) {
-    var id = $(this).data('id');
-    $('#' + id).addClass('container').siblings().removeClass('none');
-});
-$(function() {
-  $('.game_list_type').change(function() {
-    if($(this).val() == 'all') {$('#all').toggle();}
-    if($(this).val() == 'public') {$('#public').toggle();} 
-    if($(this).val() == 'private') {$('#private').toggle();}
-  });
-});
+$('.toggle').hide();
 
-jQuery(document).ready(function($) {
-    $(".clickable-row").click(function() {
-        window.document.location = $(this).data("href");
-		});
-    });
+$('.show').bind('change',function(){
+
+    var showOrHide1 = ($(this).val() == 1) ? true : false;
+    var showOrHide2 = ($(this).val() == 2) ? true : false;
+    var showOrHide3 = ($(this).val() == 3) ? true : false;
+
+    $('.all').toggle(showOrHide1);
+	$('.public').toggle(showOrHide2);
+	$('.private').toggle(showOrHide3);
+});
 </script>
 
 </div>
