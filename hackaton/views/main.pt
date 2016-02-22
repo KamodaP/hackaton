@@ -25,7 +25,7 @@
 				</div>
 				<ul class="hide-on-med-and-down right">
 					<li tal:condition="view.logged_in is not None"><a href="${request.route_url('user_games')}">User Games</a></li>
-					<li tal:condition="view.logged_in is not None"><a href="${request.route_url('Creating_game')}">Add Game</a></li>
+					<li tal:condition="view.logged_in is not None"><a href="${request.route_url('creating_game')}">Add Game</a></li>
 					<li><a href="#">lol3</a></li>
 					<li><a href="#">lol4</a></li>
 				</ul>
