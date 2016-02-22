@@ -84,11 +84,11 @@ class CommonViews:
         else:
             if 'next' in request.params:
                 found = 0
-                for rec in res:
-                    if rec[0] == curid:
+                for rec in data_records:
+                    if rec.id == curid:
                         found = 1
                     if found == 1:
-                        curid = rec[0]
+                        curid = rec.id
                         break
         dataset = get_data_by_id(curid)
         return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
