@@ -2,6 +2,25 @@
 
 
 <div metal:fill-slot="head">
+	<script src="jquery.flip.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+	<style type="text/css">
+      .tile {
+        width: 120px;
+        height: 150px;
+        margin: 10px;
+		float: left;
+      }
+      .front, .back {
+        padding: 10px;
+      }
+      .front {
+        background-color: #80cbc4;
+      }
+      .back {
+        background-color: #e8eaf6 ;
+      }
+    </style>
 
 </div>
 

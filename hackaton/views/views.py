@@ -191,6 +191,9 @@ class CommonViews:
         data_records = get_game_data(gameid)
         return {'user_id' : user_id, 'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
 
+    @view_config(route_name = 'memmory_game', renderer = 'memmory_game.pt')
+    def memmory_game(self):
+        return {'name': 'Edit Data View', 'logged_in' : self.request.authenticated_userid}
     
     @view_config(route_name = 'edit_data', renderer = 'edit_data.pt')
     def edit_data(self):
