@@ -78,11 +78,11 @@ class CommonViews:
         dataset = get_data_by_id(curid)
         data_records = get_game_data(gameid)
 
-        flash_url = request.route_url('flashcard')
-        referrer = request.url
+        flash_url = self.request.route_url('flashcard')
+        referrer = self.request.url
         if referrer == flash_url:
             referrer = '/'
-        came_from = request.params.get('came_from', referrer)
+        came_from = self.request.params.get('came_from', referrer)
 
         found = 0
         nextid = 0
