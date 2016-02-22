@@ -35,7 +35,7 @@ tile {
 </div>
 
 <script>
-$("#card").flip({
+$("#tile").flip({
   trigger: 'click'
 });
 </script>
