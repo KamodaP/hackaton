@@ -81,9 +81,11 @@ class CommonViews:
         found = 0
         nextid = 0
         for rec in data_records:
+            log.debug('recid: %d', rec.id) 
             if rec.id == curid:
                 found = 1
             if found == 1:
+                log.debug('found')
                 nextid = rec.id
                 break
         
