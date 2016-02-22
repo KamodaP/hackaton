@@ -109,7 +109,7 @@ class CommonViews:
     def user_games(self):
         login = self.logged_in
         user_id = get_user_id_by_email(login)
-        user_data = get_user(user_id)
+        user_info = get_user(user_id)
         if self.logged_in:
             all_games = get_games_of_user(user_id)
             all_game_records  = []
