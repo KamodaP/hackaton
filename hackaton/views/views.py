@@ -86,7 +86,10 @@ class CommonViews:
             if found == 1:
                 nextid = rec.id
                 break
-
+        
+        log.debug('gameid: %s', gameid)
+        log.debug('curid: %s', curid)
+        log.debug('nextid: %s', nextid)
         return {'curid' : curid, 'nextid' : nextid, 'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
 
         #if 'game' in self.request.GET.keys():
