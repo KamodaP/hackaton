@@ -13,7 +13,7 @@
 	<header>
 		<nav role="navigation">
 			<div class="nav-wrapper container">
-				<a id="logo-container" href="#" class="brand-logo">logo<!--<img width="150" src="${request.static_url('hackaton:static/images/logo.png')}" alt="Return to the homepage" />--></a>	
+				<a id="logo-container" href="${request.route_url('')}" class="brand-logo">logo<!--<img width="150" src="${request.static_url('hackaton:static/images/logo.png')}" alt="Return to the homepage" />--></a>	
 				<div  tal:condition="view.logged_in is None"
 					class="right">
 					<p class="btn"><a href="${request.route_url('register')}">Register</a></p>
