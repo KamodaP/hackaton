@@ -6,7 +6,9 @@
 	<h3 tal:condition="user_id is not game_name.owner_id" tal:content="game_name.game_name">Some Game</h3>
 	<h3 tal:condition="user_id is game_name.owner_id"><input name="game_name" type="text" class="validate" value="${game_name.game_name}"></h3><button tal:condition="user_id is game_name.owner_id">Edit</button><button tal:condition="user_id is game_name.owner_id">Delete</button>
 </div>
-
+<div>
+	<p class="btn"><a href="${request.route_url('memmory_game')}">Open Memmory Game</a></p>
+</div>
 <div class = "container" id="all">
 <table>
 	<thead>
