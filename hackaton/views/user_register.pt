@@ -40,14 +40,14 @@
           <label for="password">Password</label>
         </div>
       </div>
-	  <input name="user_submit" type="submit">	 
-	<div class="container">
+	  <input name="user_submit" type="submit" value="submit_form">	 
+<!--	<div class="container">
 		<div class="row right white">
 			<a name="user_submit" class="btn-floating btn-large waves-effect waves-light red" onclick="myFunction()"><i class="material-icons">add</i></a>
-			<!--<p class="btn"><a href="#">Submit</a></p>
-			<p class="btn"><a href="#">Cancel</a></p>-->
+			<p class="btn"><a href="#">Submit</a></p>
 		</div>
 	</div> 
+			<p class="btn"><a href="#">Cancel</a></p>-->
     </form>
 	</div>
 	</div>
