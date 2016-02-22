@@ -73,9 +73,9 @@ $(':radio').change(function (event) {
 });
 $(function() {
   $('.game_list_type').change(function() {
-    if($(this).val() == 'all') {$('#all').slideToggle('500');}
-    if($(this).val() == 'public') {$('#public').slideToggle('500');} 
-    if($(this).val() == 'private') {$('#private').slideToggle('500');}
+    if($(this).val() == 'all') {$('#all').toggle();}
+    if($(this).val() == 'public') {$('#public').toggle();} 
+    if($(this).val() == 'private') {$('#private').toggle();}
   });
 });
 
