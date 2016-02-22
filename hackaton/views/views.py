@@ -62,7 +62,8 @@ class CommonViews:
             super_tag = ""
             for tag in tags:
                 super_tag = super_tag + ';' + tag.tag
-            game_records.append({'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
+            link = '?game=' + str(game.id)
+            game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
         return {'game_records' : game_records, 'name': 'Home View', 'logged_in' : self.request.authenticated_userid}
         

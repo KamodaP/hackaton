@@ -43,7 +43,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item game_records">
+		<tr tal:repeat="item game_records" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
 			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
@@ -55,6 +55,13 @@
 	$(document).ready(function(){
 		$('.slider').slider({full_width: true});
 	});
+	
+
+	jQuery(document).ready(function($) {
+		$(".clickable-row").click(function() {
+			window.document.location = $(this).data("href");
+		});
+    });
 </script>
 </div>
 </html>

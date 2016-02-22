@@ -28,7 +28,7 @@
 </table>
 </div>
 
-<div class = "none" id="public">
+<div class = "none" id="public" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
 <table>
 	<thead>
 		<tr>
@@ -47,7 +47,7 @@
 </table>
 </div>
 
-<div class = "none" id="private">
+<div class = "none" id="private" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
 <table>
 	<thead>
 		<tr>
