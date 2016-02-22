@@ -2,7 +2,31 @@
 
 <div metal:fill-slot="content">
 
-
+<div class="container">
+	<div class="row">
+    <form class="col s12" method="post">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="old_password" name="password" type="password" class="validate">
+          <label for="password"> Write Old Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="new_password" name="password" type="password" class="validate">
+          <label for="password">Write New Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="repeated_password" name="password" type="password" class="validate">
+          <label for="password">Repeat New Password</label>
+        </div>
+      </div>
+	  <input name="user_submit" type="submit">	  
+    </form>
+	</div>
+</div>
 
 </div>
 </html>
