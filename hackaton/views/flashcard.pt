@@ -27,9 +27,12 @@ tile {
 	  a:visited {
 		color: white;
 	  }
+	  span{
+		vertical-align: middle;
+	  }
 </style>
 <div>
-	<p class="btn"><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" >Next</a></p>
+	<span><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" >Next</a></p></span>
 </div>
 <div class="container">
 <div class="card-grid tile z-depth-3" style="width:30em;height:20em;">
