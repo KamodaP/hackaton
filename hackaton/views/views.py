@@ -72,7 +72,7 @@ class CommonViews:
     def flashcard(self):
         gameid = self.request.GET.pop('game')
         data_records = get_game_data(gameid)
-        curid = self.request.curid
+        curid = self.request.get('curid', None)
 
         if curid is None:
             curid = data_records.first().id
