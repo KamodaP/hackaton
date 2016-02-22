@@ -125,6 +125,7 @@ class CommonViews:
         return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
     
     @view_config(route_name = 'register', renderer = 'user_register.pt')
+    @forbidden_view_config(renderer='user_register.pt')
     def register(self):
         request = self.request
         register_url = request.route_url('register')
