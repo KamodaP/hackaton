@@ -68,14 +68,32 @@ class CommonViews:
 
         return {'game_records' : game_records, 'name': 'Home View', 'logged_in' : self.request.authenticated_userid}
 
-    @view_config(route_name='flashcard')
+    @view_config(route_name='flashcard', renderer='flashcard.pt')
     def flashcard(self):
+        gameid = self.request.GET.pop('game')
+        curid = self.request.GET.pop('data')
 
-        dataset = get_data_by_id(dataid)
+        dataset = get_data_by_id(curid)
         data_records = get_game_data(gameid)
-        nextid = 
 
-        return {'nextid' : nextid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
+        return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
+
+    @view_config(route_name='next_flash')
+    def next_flash(self):
+        gameid = self.request.GET.pop('game')
+        curid = self.request.GET.pop('data')
+        res = get_game_data(gameid)
+        found = 0
+        nextid = 0
+
+        for rec in res:
+            if rec[0] == curid:
+                found = 1
+            if found == 1:
+                nextid = rec[0]
+                break
+
+        return HTTPFound(request.route_url("flashcard") + '?game=' + gameid + '&data=' + nextid)
         
     
     @view_config(route_name='edit_data')
