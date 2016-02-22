@@ -95,7 +95,8 @@ class CommonViews:
                 found = 1
            
         if found == 0:
-            return HTTPFound(self.request.route_url(came_from), headers=header)
+            params = {"game" : str(gameid)}
+            return HTTPFound(self.request.route_url('game_view', _query=params))
         log.debug('gameid: %s', gameid)
         log.debug('curid: %s', curid)
         log.debug('nextid: %s', nextid)
