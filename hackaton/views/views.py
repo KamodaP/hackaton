@@ -104,14 +104,6 @@ class CommonViews:
         header = remember(self.request, self.request.authenticated_userid)
         return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
         
-    
-    @view_config(route_name='edit_data')
-    def edit_data(self):
-        dataid = self.request.GET.pop('data')
-        dataset = get_data_by_id(dataid)
-
-        return {'dataset':dataset,'name': 'Edit Data View', 'logged_in' : self.request.authenticated_userid}
-
     @view_config(route_name='about')
     def about(self):
         return {'name': 'About View', 'logged_in' : self.request.authenticated_userid}
@@ -169,6 +161,15 @@ class CommonViews:
         game_name = get_game_by_id(gameid)
         data_records = get_game_data(gameid)
         return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
+
+    
+    @view_config(route_name = 'edit_data', renderer = 'edit_data.pt')
+    def edit_data(self):
+        dataid = self.request.GET.pop('data')
+        dataset = get_data_by_id(dataid)
+
+        return {'dataset':dataset,'name': 'Edit Data View', 'logged_in' : self.request.authenticated_userid}
+
     
     @view_config(route_name = 'register', renderer = 'user_register.pt')
     def register(self):
