@@ -3,9 +3,9 @@
 <div metal:fill-slot="content">
 
 <form>
-  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="position:static" value="all"> All your games<br>
-  <input type="radio" name="game_list_type" data-id="public" style="position:static" value="public"> Your public games<br>
-  <input type="radio" name="game_list_type" data-id="private" style="position:static" value="private"> Your private games
+  <input type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="all"> All your games<br>
+  <input type="radio" name="game_list_type" data-id="public" style="visibility:visible;position:static" value="public"> Your public games<br>
+  <input type="radio" name="game_list_type" data-id="private" style="visibility:visible;position:static" value="private"> Your private games
 </form>
 
 
