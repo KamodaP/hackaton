@@ -23,7 +23,7 @@ tile {
 
 <a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">next</a>
 
-<div id="card">
+<div id="tile">
 	<div class="front">
 		<p> ${dataset.value_1} </p>
 	</div>
