@@ -32,15 +32,15 @@ tile {
 	  }
 </style>
 <div>
-	<span><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" >Next</a></p></span>
+	<p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" >Next</a></p>
 </div>
 <div class="container">
 <div class="card-grid tile z-depth-3" style="width:30em;height:20em;">
 	<div class="front">
-		<p> ${dataset.value_1} </p>
+		<span><p> ${dataset.value_1} </p></span>
 	</div>
 	<div class="back">
-		<p> ${dataset.value_2} </p>
+		<span><p> ${dataset.value_2} </p></span>
 	</div>
 </div>
 </div>
