@@ -10,13 +10,12 @@
 
 <div id="card">
 	<div class="front">
-		<p> tal:content="dataset.value_1" </p>
+		<p> ${dataset.value_1} </p>
 	</div>
 	<div class="back">
-		<p> tal:content="dataset.value_2" </p>
+		<p> ${dataset.value_2} </p>
 	</div>
 </div>
 
-</div>
 </div>
 </html>
