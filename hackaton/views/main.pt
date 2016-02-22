@@ -26,8 +26,7 @@
 				<ul class="hide-on-med-and-down right">
 					<li tal:condition="view.logged_in is not None"><a href="${request.route_url('user_games')}">User Games</a></li>
 					<li tal:condition="view.logged_in is not None"><a href="${request.route_url('add_game')}">Add Game</a></li>
-					<li><a href="#">lol3</a></li>
-					<li><a href="#">lol4</a></li>
+					
 				</ul>
 			</div>
 		</nav>
@@ -43,24 +42,6 @@
           <p class="grey-text text-lighten-4">Easy way of learning. Create and Share your Quizes.</p>
 
 
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Contact</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
         </div>
       </div>
     </div>
