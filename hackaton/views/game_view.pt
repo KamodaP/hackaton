@@ -18,7 +18,7 @@
 		<tr tal:repeat="item data_records" class="clickable-row" data-href="${request.route_url('flashcard')}?game=${game_name.id}">
 			<td>${item.value_1}</td>
 			<td>${item.value_2}</td>
-			<td tal:condition="view.logged_in is not None"><a href="${request.route_url('edit_data')}?data=${item.id}"><button>Edit</button></a></td>
+			<td tal:condition="user_id is not game_name.owner_id"><a href="${request.route_url('edit_data')}?data=${item.id}"><button>Edit</button></a></td>
 			<td tal:condition="view.logged_in is not None"><button>Delete</button></td>
 		</tr>
 	</tbody>

@@ -176,10 +176,12 @@ class CommonViews:
 
     @view_config(route_name = 'game_view', renderer = 'game_view.pt')
     def game_view(self):
+        login = self.logged_in
+        user_id = get_user_id_by_email(login)
         gameid = self.request.GET.pop('game')
         game_name = get_game_by_id(gameid)
         data_records = get_game_data(gameid)
-        return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
+        return {'user_id' : user_id, 'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
 
     
     @view_config(route_name = 'edit_data', renderer = 'edit_data.pt')
