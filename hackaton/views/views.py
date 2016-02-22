@@ -71,7 +71,7 @@ class CommonViews:
     @view_config(route_name='flashcard', renderer='flashcard.pt')
     def flashcard(self):
         gameid = -1
-        if 'game' in self.register.GET.keys():
+        if 'game' in self.request.GET.keys():
             gameid = self.request.GET.pop('game')
         else:
             gameid = self.request.params.get('gameid', None)
