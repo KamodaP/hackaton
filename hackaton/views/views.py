@@ -71,16 +71,22 @@ class CommonViews:
     @view_config(route_name='flashcard', renderer='flashcard.pt')
     def flashcard(self):
         gameid = -1
+        import logging
+        log = logging.getLogger(__name__)
+        
         if 'game' in self.request.GET.keys():
             gameid = self.request.GET.pop('game')
+            log.debug('Game id from GET: %s', gameid)
         else:
             gameid = self.request.params.get('gameid', None)
+            log.debug('Game id from params: %s', gameid)
 
         data_records = get_game_data(gameid)
         curid = self.request.params.get('curid', None)
 
         if curid is None:
             curid = data_records[0].id
+            log.debug('Cur id was None, now is: %s', curid)
         else:
             if 'next' in request.params:
                 found = 0
@@ -90,6 +96,7 @@ class CommonViews:
                     if found == 1:
                         curid = rec.id
                         break
+                log.debug('Cur id found, new is: %s', curid)
         dataset = get_data_by_id(curid)
         return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
         
