@@ -3,7 +3,7 @@
 <div metal:fill-slot="content">
 
 <div class="container">
-	<div class="row">
+	<!--<div class="row">
     <form class="col s12" method="post">
 	  <div class="row">
         <div class="input-field col s12">
@@ -42,7 +42,7 @@
 	  <input name="user_submit" type="submit">	  
     </form>
 		<button>Edit</button>
-	</div>
+	</div>-->
 
 <form>
   <input class="show" type="radio" name="game_list_type" data-id="all" checked="checked" style="visibility:visible;position:static" value="1"> All your games<br>
