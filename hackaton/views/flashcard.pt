@@ -24,7 +24,7 @@ tile {
 <a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">next</a>
 
 <div class="container">
-<div id="tile z-depth-3">
+<div class="card-grid tile z-depth-3" style="width:30em;height:20em;">
 	<div class="front">
 		<p> ${dataset.value_1} </p>
 	</div>
@@ -35,7 +35,7 @@ tile {
 </div>
 
 <script>
-$("#tile").flip({
+$(".card-grid").flip({
   trigger: 'click'
 });
 </script>
