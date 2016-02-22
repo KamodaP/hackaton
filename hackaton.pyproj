@@ -57,6 +57,7 @@
     <Content Include="hackaton\static\font\roboto\Roboto-Thin.ttf" />
     <Content Include="hackaton\static\font\roboto\Roboto-Thin.woff" />
     <Content Include="hackaton\static\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="hackaton\static\images\kingfisher.jpg" />
     <Content Include="hackaton\static\images\logo.png" />
     <Content Include="hackaton\static\js\materialize.js" />
     <Content Include="hackaton\static\js\materialize.min.js" />
