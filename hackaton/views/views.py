@@ -98,6 +98,8 @@ class CommonViews:
                         break
                 log.debug('Cur id found, new is: %s', curid)
         dataset = get_data_by_id(curid)
+        header = remember(self.request, self.request.authenticated_userid)
+        return HTTPFound(request.route_url("flashcard"), headers=header)
         return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
         
     
