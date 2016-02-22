@@ -13,7 +13,7 @@
       <li>
         <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}"> 
         <div class="caption left-align">
-          <h3>Create ans share</h3>
+          <h3>Create and share</h3>
           <h5 class="light grey-text text-lighten-3">Create your own Quizes and play educational games. You will learn what you need in no time!</h5>
         </div>
       </li>
@@ -27,18 +27,19 @@
       <li>
         <img width="300" src="${request.static_url('hackaton:static/images/logo.png')}">
         <div class="caption center-align">
-          <h3>Don't waste you time! >> joins us mwahaha</h3>
+          <h3>Super Quizes for super people!</h3>
           <h5 class="light grey-text text-lighten-3">Gather points when others will positively assess you quizes!</h5>
         </div>
       </li>
     </ul>
 	</div>
 <div class = "container">
-<table>
+<h3>Most popular Data Sets:</h3>
+<table class="striped">
 	<thead>
 		<tr>
 			<th data-field="name">Name</th>
-			<th data-field="owner_id">Owner</th>
+			<th data-field="owner_id">Autor</th>
 			<th data-field="tags">Tags</th>
 		</tr>
 	</thead>
