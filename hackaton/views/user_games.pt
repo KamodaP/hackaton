@@ -75,9 +75,9 @@ $('.show').bind('change',function(){
     var showOrHide2 = ($(this).val() == 2) ? true : false;
     var showOrHide3 = ($(this).val() == 3) ? true : false;
 
-    $('.all').toggle(showOrHide1);
-	$('.public').toggle(showOrHide2);
-	$('.private').toggle(showOrHide3);
+    $('#all').toggle(showOrHide1);
+	$('#public').toggle(showOrHide2);
+	$('#private').toggle(showOrHide3);
 });
 
 jQuery(document).ready(function($) {
