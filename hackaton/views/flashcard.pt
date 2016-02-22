@@ -12,7 +12,6 @@ tile {
       }
       .front, .back {
         text-align: center;
-		vertical-align: middle;
 		font-size: 30px;
       }
       .front {
@@ -23,7 +22,7 @@ tile {
       }
 </style>
 <div>
-	<p class="btn"><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">Next</a></p>
+	<p class="btn"><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" style="color:white;">Next</a></p>
 </div>
 <div class="container">
 <div class="card-grid tile z-depth-3" style="width:30em;height:20em;">
