@@ -120,7 +120,7 @@
 				is_afterclick_enable = false;
 				setTimeout($("#"+ card1).flip(false), 300);
 				//$("#"+ card1).flip(false); 
-				$("#"+ card2).flip(false); //KUNA &*#$@!
+				$("#"+ card2).flip(false); 
 				
 				$("#"+ card1).removeAttr("disabled").on("click", onClickCard);
 				$("#"+ card2).removeAttr("disabled").on("click", onClickCard);	
