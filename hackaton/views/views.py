@@ -87,6 +87,9 @@ class CommonViews:
         if curid is None:
             curid = data_records[0].id
             log.debug('Cur id was None, now is: %s', curid)
+            dataset = get_data_by_id(curid)
+            header = remember(self.request, self.request.authenticated_userid)
+            return HTTPFound(request.route_url("flashcard"), headers=header)
         else:
             if 'next' in request.params:
                 found = 0
@@ -99,7 +102,6 @@ class CommonViews:
                 log.debug('Cur id found, new is: %s', curid)
         dataset = get_data_by_id(curid)
         header = remember(self.request, self.request.authenticated_userid)
-        return HTTPFound(self.request.route_url("flashcard"), headers=header)
         return {'curid' : curid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
         
     
