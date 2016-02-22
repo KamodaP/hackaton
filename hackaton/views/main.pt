@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Halycon</title>
+	<title>Halcyon</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="${request.static_url('hackaton:static/css/materialize.min.css')}" type="text/css" media="screen,projection"/>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -24,7 +24,7 @@
 					<p class="btn"><a href="${request.route_url('logout')}">Log out</a></p>
 				</div>
 				<ul class="hide-on-med-and-down right">
-					<li><a href="${request.route_url('user_games')}">User Games</a></li>
+					<li tal:condition="view.logged_in is not None"><a href="${request.route_url('user_games')}">User Games</a></li>
 					<li><a href="#">lol2</a></li>
 					<li><a href="#">lol3</a></li>
 					<li><a href="#">lol4</a></li>

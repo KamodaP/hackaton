@@ -8,8 +8,7 @@ from pyramid.security import (
     
 from pyramid.view import (
     view_config,
-    view_defaults,
-    forbidden_view_config
+    view_defaults
     )
 
 from pyramid.response import (
@@ -126,7 +125,6 @@ class CommonViews:
         return {'game_name' : game_name, 'data_records' : data_records, 'name': 'Games Data View'}
     
     @view_config(route_name = 'register', renderer = 'user_register.pt')
-    @forbidden_view_config(renderer='user_register.pt')
     def register(self):
         request = self.request
         register_url = request.route_url('register')
