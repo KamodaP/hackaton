@@ -28,7 +28,7 @@
 </table>
 </div>
 
-<div class = "none" id="public" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
+<div class = "none" id="public">
 <table>
 	<thead>
 		<tr>
@@ -38,7 +38,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item public_game_records">
+		<tr tal:repeat="item public_game_records" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
 			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
@@ -47,7 +47,7 @@
 </table>
 </div>
 
-<div class = "none" id="private" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
+<div class = "none" id="private">
 <table>
 	<thead>
 		<tr>
@@ -57,7 +57,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr tal:repeat="item private_game_records">
+		<tr tal:repeat="item private_game_records" class="clickable-row" data-href="${request.route_url('game_view')}${item.link}">
 			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
