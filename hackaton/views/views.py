@@ -76,6 +76,7 @@ class CommonViews:
         gameid = self.request.GET.pop('game')
         curid = self.request.GET.pop('data')
         dataset = get_data_by_id(curid)
+        data_records = get_game_data(gameid)
 
         found = 0
         nextid = 0
