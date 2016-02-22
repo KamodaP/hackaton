@@ -184,8 +184,11 @@ class CommonViews:
 
     @view_config(route_name = 'game_view', renderer = 'game_view.pt')
     def game_view(self):
-        login = self.logged_in
-        user_id = get_user_id_by_email(login)
+        if self.logged_in:
+            login = self.logged_in
+            user_id = get_user_id_by_email(login)
+        else:
+            user_id = None
         gameid = self.request.GET.pop('game')
         game_name = get_game_by_id(gameid)
         data_records = get_game_data(gameid)
