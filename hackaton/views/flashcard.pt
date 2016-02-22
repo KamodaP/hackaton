@@ -20,9 +20,16 @@ tile {
       .back {
         background-color: #e8eaf6 ;
       }
+	  a:link {
+		color: white;
+	  }
+
+	  a:visited {
+		color: white;
+	  }
 </style>
 <div>
-	<p class="btn"><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" style="color:white;">Next</a></p>
+	<p class="btn"><p class="btn"><a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}" >Next</a></p>
 </div>
 <div class="container">
 <div class="card-grid tile z-depth-3" style="width:30em;height:20em;">
