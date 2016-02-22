@@ -95,6 +95,14 @@ class CommonViews:
 
         return HTTPFound(request.route_url("flashcard") + '?game=' + gameid + '&data=' + nextid)
         
+    
+    @view_config(route_name='edit_data')
+    def edit_data(self):
+        dataid = self.request.GET.pop('data')
+        dataset = get_data_by_id(dataid)
+
+        return {'dataset':dataset,'name': 'Edit Data View', 'logged_in' : self.request.authenticated_userid}
+
     @view_config(route_name='about')
     def about(self):
         return {'name': 'About View', 'logged_in' : self.request.authenticated_userid}

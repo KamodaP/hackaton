@@ -62,6 +62,9 @@
     <Content Include="hackaton\static\js\materialize.min.js" />
     <Content Include="hackaton\templates\mytemplate.pt" />
     <Content Include="hackaton\views\creating_game.pt" />
+    <Content Include="hackaton\views\edit_data.pt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="hackaton\views\flashcard.pt">
       <SubType>Code</SubType>
     </Content>
