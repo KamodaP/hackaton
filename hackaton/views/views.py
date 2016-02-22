@@ -76,7 +76,7 @@ class CommonViews:
         if curid is None:
             curid = data_records.first().id
         else:
-            if 'user_submit' in request.params:
+            if 'next' in request.params:
                 found = 0
                 for rec in res:
                     if rec[0] == curid:
