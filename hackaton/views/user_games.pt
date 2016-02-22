@@ -20,7 +20,6 @@
 	</thead>
 	<tbody>
 		<tr tal:repeat="item all_game_records"  class="clickable-row" data-href=${request.route_url('game_view')}${item.link}">
-			<!--<td><a href="${request.route_url('game_view')}${item.link}">${item.name}</a></td>-->
 			<td>${item.name}</td>
 			<td>${item.owner}</td>
 			<td>${item.tags}</td>
