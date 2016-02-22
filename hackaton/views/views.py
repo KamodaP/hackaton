@@ -21,6 +21,7 @@ from ..database.data_source import (
     get_games_of_user,
     get_public_games_of_user,
     get_private_games_of_user,
+    get_data_by_id,
     get_game_by_id,
     get_game_data,
     get_user,
@@ -66,6 +67,15 @@ class CommonViews:
             game_records.append({'link' : link, 'name' : game.game_name, 'owner' : user.user_name, 'tags' : super_tag[1:]})
 
         return {'game_records' : game_records, 'name': 'Home View', 'logged_in' : self.request.authenticated_userid}
+
+    @view_config(route_name='flashcard')
+    def flashcard(self):
+
+        dataset = get_data_by_id(dataid)
+        data_records = get_game_data(gameid)
+        nextid = 
+
+        return {'nextid' : nextid,'gameid' : gameid, 'dataset' : dataset, 'name': 'Flashcard View', 'logged_in' : self.request.authenticated_userid}
         
     @view_config(route_name='about')
     def about(self):
