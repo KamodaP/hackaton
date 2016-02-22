@@ -1,0 +1,178 @@
+<html metal:use-macro="load: main.pt">
+
+
+<div metal:fill-slot="head">
+	<script src="jquery.flip.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+	<style type="text/css">
+      .tile {
+        width: 120px;
+        height: 150px;
+        margin: 10px;
+		float: left;
+      }
+      .front, .back {
+        padding: 10px;
+      }
+      .front {
+        background-color: #80cbc4;
+      }
+      .back {
+        background-color: #e8eaf6 ;
+      }
+    </style>
+
+</div>
+
+<div metal:fill-slot="content">
+
+<div id="modal-popup">
+		  <!-- Modal Structure -->
+		  <div id="modal1" class="modal">
+			<div class="modal-content">
+			  <h4>Write matching word:</h4>
+			  <p id="value1"></p>
+			   <div class="row">
+				<div class="input-field col s12">
+				  <input id="value2" type="text" class="validate">
+				  <label for="value2">Your Answer:</label>
+				</div>
+			  </div>
+			</div>
+			<div class="modal-footer">
+			  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+			</div>
+		  </div>
+	</div>
+	<div class="container" id="memory-grid">
+		<!--<div id="card-grid" class="tile z-depth-3">
+		  <div class="front"></div> 
+		  <div class="back"></div> 
+		</div>-->
+	</div>
+	<script type="text/javascript">
+		var uncoveredCards = [];
+		//ar temporaryUncoveredCards = []; -> selected
+		var is_pair_found = false;
+		var is_afterclick_enable = true;
+		var score = 0;
+		
+		var Value1DataSet=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
+		var Value2DataSet=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+		var length = Value1DataSet.length;
+		var indexes = [];
+		for (var i =0; i < length; i++) {
+			indexes[i] = i;
+		}
+		
+		
+		var selected = Value1DataSet.concat(Value1DataSet);
+		var cards_selected = [];	
+		var Card = function(n, val1) {
+			this.n = n;
+			this.val1 = val1;
+			//this.width = 70;
+		};
+		var cards = [];
+		//randomize
+		var rand = Math.random();
+		selected.sort(function() {return 0.5 - rand;}); //DEFFINITELY TO CORRECT
+		indexes.sort(function() {return 0.5 - rand;});
+		var element = document.getElementById("memory-grid");
+		for (var j = 0; j < length*2; j++) {
+			var card = selected.pop();
+			cards.push(new Card(j,card));			
+			
+			document.getElementById("memory-grid").innerHTML += "<div id=\"" + j + "\" class=\"card-grid tile z-depth-3\"><div class=\"front\"></div><div class=\"back\">" + card + "</div></div>";
+			//element.appendChild(content);
+			//$('#memory-grid').append('<div id="card-grid" class="tile z-depth-3"><div class="front"></div><div class="back"></div> </div>');				
+		}
+	 	//$(function(){
+		  $(".card-grid").flip({
+			axis: "x",
+			reverse: true,
+			trigger: "manual" //change to only avaiblr on back 
+		  });
+		//});
+		function onClickCard() {
+			if ($(this).find('.front').css("z-index") == "1") {
+				$(this).flip(true);				
+			} else if ($(this).find('.back').css("z-index") == "1"){
+				$(this).flip(false);				
+			}		
+			//if (is_afterclick_enable == true) {
+				
+				//$(afterClick(this));
+			//}
+			//alert( "clicked" );
+			is_afterclick_enable = true;
+		}
+		$(".card-grid").on("click", onClickCard);
+		/*function afterClick(elm) {
+			$(elm).attr("disabled", "disabled").off('click');
+			//$(this).off('.flip=');
+			cards_selected.push(elm.id);
+			 
+			if (cards_selected.length >= 2) {
+				var card1 = cards_selected.pop();
+				var card2 = cards_selected.pop();
+				
+				is_afterclick_enable = false;
+				setTimeout($("#"+ card1).flip(false), 300);
+				//$("#"+ card1).flip(false); 
+				$("#"+ card2).flip(false); //KUNA &*#$@!
+				
+				$("#"+ card1).removeAttr("disabled").on("click", onClickCard);
+				$("#"+ card2).removeAttr("disabled").on("click", onClickCard);	
+				is_afterclick_enable = true;
+            }			
+		}*/
+		
+		
+		$(".card-grid").on('flip:done',function(){
+			//if($.inArray(this.id, array)){
+			if (is_afterclick_enable == true){
+			$(this).attr("disabled", "disabled").off('click');
+			//$(this).off('.flip=');
+			cards_selected.push(this.id);
+			 
+			if (cards_selected.length >= 2) {
+				var card1 = cards_selected.pop();
+				var card2 = cards_selected.pop();	
+				var answer;
+				if (cards[card1].val1 == cards[card2].val1) {
+					$('#modal1').openModal({
+					  dismissible: false, // Modal can be dismissed by clicking outside of the modal
+					  ready: function() { }, // Callback for Modal open
+					  complete: function() { answer = $('#value2').val() } // Callback for Modal close
+					});
+					$('#modal1').find('#value1').text(cards[card1].val1);//.append(cards[card1].val1);
+					if (answer == Value2DataSet[0]) {
+						smore++;
+					}
+				} else {
+					//$("#"+ card1).off('flip:done');//prevent fireing event again 
+					//$("#"+ card2).off('flip:done');
+					
+					is_afterclick_enable = false;
+					$("#"+ card1).flip(false);
+					$("#"+ card2).flip(false);
+					
+					$("#"+ card1).removeAttr("disabled").on("click", onClickCard);
+					$("#"+ card2).removeAttr("disabled").on("click", onClickCard);	
+
+					
+					//$("#"+ card1).on('flip:done');//prevent fireing event again 
+					//$("#"+ card2).on('flip:done');	
+				}			
+            }			
+			}
+		});
+	
+		
+		
+		
+    </script>
+
+</div>
+</html>

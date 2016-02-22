@@ -36,6 +36,7 @@ def main(global_config, **settings):
     config.add_route('game_view', '/game_view')
     config.add_route('flashcard', '/flashcard')
     config.add_route('edit_data', '/edit_data')
+    config.add_route('memmory_game', '/memmory_game')
     config.add_static_view(name='static', path='hackaton:static', cache_max_age=3600)
     config.scan()
     return config.make_wsgi_app()
