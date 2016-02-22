@@ -1,8 +1,23 @@
 <html metal:use-macro="load: main.pt">
 
 <div metal:fill-slot="content">
-
-
+<style>
+tile {
+        width: 120px;
+        height: 150px;
+        margin: 10px;
+		float: left;
+      }
+      .front, .back {
+        padding: 10px;
+      }
+      .front {
+        background-color: #80cbc4;
+      }
+      .back {
+        background-color: #e8eaf6 ;
+      }
+</style>
 
 <a href="${request.route_url('flashcard')}?game=${gameid}&data=${nextid}">next</a>
 
@@ -14,6 +29,12 @@
 		<p> ${dataset.value_2} </p>
 	</div>
 </div>
+
+<script>
+$("#card").flip({
+  trigger: 'click'
+});
+</script>
 
 </div>
 </html>
