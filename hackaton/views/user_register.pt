@@ -44,7 +44,7 @@
     
 	<div class="container">
 		<div class="row right white">
-			<a class="btn-floating btn-large waves-effect waves-light red" name="user_submit" type="submit"><i class="material-icons">add</i></a>
+			<input name="user_submit" type="submit"><i class="material-icons">add</i></input>
 			<!--<p class="btn"><a href="#">Submit</a></p>
 			<p class="btn"><a href="#">Cancel</a></p>-->
 		</div>
