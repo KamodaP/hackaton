@@ -20,7 +20,7 @@
 </div>
 </div>
 <div class = "container" id="all">
-<h1>Click any to start flash card game</h1>
+<h6>Click any to start flash card game</h6>
 <table>
 	<thead>
 		<tr>
